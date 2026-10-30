@@ -1,0 +1,51 @@
+{
+  "project": "HiLo-Fed research prototype",
+  "version": "0.2.0",
+  "dataset": "metr_la",
+  "seed": 41,
+  "partition": "sensor",
+  "fast_mode": true,
+  "max_rows_requested": 1200,
+  "rows_used": 1200,
+  "sensor_count": 207,
+  "train_rows": 840,
+  "validation_rows": 120,
+  "test_rows": 240,
+  "training_samples": 169119,
+  "validation_samples": 20079,
+  "test_samples": 44919,
+  "window_stride": 1,
+  "rounds": 3,
+  "local_epochs": 1,
+  "client_count": 6,
+  "edge_count": 3,
+  "cloud_aggregation_every_rounds": 2,
+  "lookback_steps": 12,
+  "input_features_per_sensor": 24,
+  "graph_neighbour_features_used": true,
+  "forecast_horizon_steps": 12,
+  "full_model_trainable_parameters": 300,
+  "lora_adapter_trainable_parameters": 36,
+  "lora_trainable_parameter_ratio": 0.12,
+  "target_minutes": [
+    15,
+    30,
+    60
+  ],
+  "runtime_seconds": 4.539849427999798,
+  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "source_dataset_files": [
+    "metr_la",
+    "provided METR-LA.csv / PEMS-BAY.csv; no synthetic traffic substituted"
+  ],
+  "usable_distance_graph_edges": 11753,
+  "distance_graph_note": "Distance edges are aligned to sensor IDs and converted to normalized distance-weighted adjacency. Each input contains own-sensor history and graph-neighbour aggregate history; graph metadata contributes to model inputs.",
+  "communication_accounting": "Measured encoded update arrays and model payloads, plus 16-byte message headers; network protocol overhead outside this model is not included.",
+  "research_caveats": [
+    "This is a reconstructed prototype, not recovered original Antigravity source.",
+    "Graph-aware linear multi-horizon forecaster is a lightweight spatial-temporal baseline, not a deep graph neural network.",
+    "Results are from the requested run configuration and must not be generalized beyond the evaluated split.",
+    "LoRA is implemented as a trainable low-rank correction to a frozen persistence backbone."
+  ]
+}

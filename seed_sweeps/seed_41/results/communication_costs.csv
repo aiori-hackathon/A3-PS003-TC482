@@ -1,0 +1,11 @@
+dataset,method,client_upload_bytes,client_downlink_bytes,edge_upload_bytes,edge_downlink_bytes,total_bytes,counterfactual_full_upload_bytes,rounds,trainable_parameters,upload_reduction_pct,communication_scope
+metr_la,HiLo-Fed,520.0,2880.0,960.0,960.0,5320.0,2880.0,3,36,81.94444444444444,client and edge/cloud model payloads; 16-byte per-message header included
+metr_la,HiLo-Fed (no LoRA),1020.0,21888.0,7296.0,7296.0,37500.0,21888.0,3,300,95.33991228070175,client and edge/cloud model payloads; 16-byte per-message header included
+metr_la,HiLo-Fed (fixed threshold),240.0,2880.0,960.0,960.0,5040.0,2880.0,3,36,91.66666666666666,client and edge/cloud model payloads; 16-byte per-message header included
+metr_la,HiLo-Fed (no trigger),2880.0,2880.0,960.0,960.0,7680.0,2880.0,3,36,0.0,client and edge/cloud model payloads; 16-byte per-message header included
+metr_la,FedAvg,21888.0,21888.0,0.0,0.0,43776.0,21888.0,3,300,0.0,client and edge/cloud model payloads; 16-byte per-message header included
+metr_la,FedAvg + INT8,5760.0,21888.0,0.0,0.0,27648.0,21888.0,3,300,73.6842105263158,client and edge/cloud model payloads; 16-byte per-message header included
+metr_la,FedAvg + top-k,4608.0,21888.0,0.0,0.0,26496.0,21888.0,3,300,78.94736842105263,client and edge/cloud model payloads; 16-byte per-message header included
+metr_la,Centralized,,,,,,,3,300,,Not comparable: centralized pooled-data baseline; data-transfer cost excluded
+metr_la,Last-value,,,,,,,0,0,,Non-trained reference baseline; communication not applicable
+metr_la,Historical-average,,,,,,,0,0,,Non-trained reference baseline; communication not applicable

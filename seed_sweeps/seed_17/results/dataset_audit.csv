@@ -1,0 +1,2 @@
+dataset,sensor_count,distance_edges_usable,distance_graph_sensor_coverage,distance_graph_compatible,note
+metr_la,207,11753,207,True,Distance edges are filtered to sensor IDs present in the selected traffic dataset; unmatched edges are excluded rather than remapped by guess.
