@@ -1,0 +1,31 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.5, pytest-9.0.2, pluggy-1.6.0 -- /opt/pyvenv/bin/python
+cachedir: .pytest_cache
+metadata: {'Python': '3.13.5', 'Platform': 'Linux-6.18.57-x86_64-with-glibc2.41', 'Packages': {'pytest': '9.0.2', 'pluggy': '1.6.0'}, 'Plugins': {'anyio': '4.13.0', 'ddtrace': '4.4.0', 'Faker': '40.1.2', 'asyncio': '1.3.0', 'cov': '7.0.0', 'json-report': '1.5.0', 'metadata': '3.1.1'}, 'PLATFORM': 'linux/amd64', 'CI': 'true'}
+rootdir: /mnt/data/HiLo-Fed-Research-Prototype
+configfile: pyproject.toml
+testpaths: tests
+plugins: anyio-4.13.0, ddtrace-4.4.0, Faker-40.1.2, asyncio-1.3.0, cov-7.0.0, json-report-1.5.0, metadata-3.1.1
+asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collecting ... collected 18 items
+
+tests/test_core.py::test_user_provided_datasets_load[metr_la-200] PASSED [  5%]
+tests/test_core.py::test_user_provided_datasets_load[pems_bay-300] PASSED [ 11%]
+tests/test_core.py::test_metr_la_graph_sensor_order_is_preserved PASSED  [ 16%]
+tests/test_core.py::test_windows_are_finite_and_target_mask_is_boolean PASSED [ 22%]
+tests/test_core.py::test_graph_neighbour_features_are_present_and_finite PASSED [ 27%]
+tests/test_core.py::test_masked_metrics_ignores_invalid_target PASSED    [ 33%]
+tests/test_core.py::test_adaptive_threshold_lowers_when_volatility_rises PASSED [ 38%]
+tests/test_core.py::test_staleness_cap_forces_upload PASSED              [ 44%]
+tests/test_core.py::test_cloud_aggregation_cadence PASSED                [ 50%]
+tests/test_core.py::test_weighted_average_is_sample_weighted PASSED      [ 55%]
+tests/test_core.py::test_sensor_partition_assigns_every_sensor_once PASSED [ 61%]
+tests/test_core.py::test_update_codecs_roundtrip_shape_and_payload[float32] PASSED [ 66%]
+tests/test_core.py::test_update_codecs_roundtrip_shape_and_payload[int8] PASSED [ 72%]
+tests/test_core.py::test_update_codecs_roundtrip_shape_and_payload[topk] PASSED [ 77%]
+tests/test_core.py::test_update_codecs_roundtrip_shape_and_payload[topk_int8] PASSED [ 83%]
+tests/test_core.py::test_lora_adapter_uses_fewer_trainable_parameters PASSED [ 88%]
+tests/test_core.py::test_local_training_changes_actual_model_parameters PASSED [ 94%]
+tests/test_core.py::test_pipeline_smoke_produces_real_result_tables PASSED [100%]
+
+============================== 18 passed in 9.41s ==============================

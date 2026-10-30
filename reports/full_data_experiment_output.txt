@@ -1,0 +1,18 @@
+{
+  "status": "SUCCESS",
+  "datasets": [
+    {
+      "dataset": "metr_la",
+      "runtime_seconds": 3.46,
+      "metrics_rows": 30,
+      "methods": 10
+    },
+    {
+      "dataset": "pems_bay",
+      "runtime_seconds": 6.55,
+      "metrics_rows": 30,
+      "methods": 10
+    }
+  ],
+  "output_dir": "/mnt/data/HiLo-Fed-Research-Prototype/results"
+}

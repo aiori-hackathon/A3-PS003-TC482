@@ -1,0 +1,20 @@
+[
+  "tests/test_core.py::test_adaptive_threshold_lowers_when_volatility_rises",
+  "tests/test_core.py::test_cloud_aggregation_cadence",
+  "tests/test_core.py::test_graph_neighbour_features_are_present_and_finite",
+  "tests/test_core.py::test_local_training_changes_actual_model_parameters",
+  "tests/test_core.py::test_lora_adapter_uses_fewer_trainable_parameters",
+  "tests/test_core.py::test_masked_metrics_ignores_invalid_target",
+  "tests/test_core.py::test_metr_la_graph_sensor_order_is_preserved",
+  "tests/test_core.py::test_pipeline_smoke_produces_real_result_tables",
+  "tests/test_core.py::test_sensor_partition_assigns_every_sensor_once",
+  "tests/test_core.py::test_staleness_cap_forces_upload",
+  "tests/test_core.py::test_update_codecs_roundtrip_shape_and_payload[float32]",
+  "tests/test_core.py::test_update_codecs_roundtrip_shape_and_payload[int8]",
+  "tests/test_core.py::test_update_codecs_roundtrip_shape_and_payload[topk]",
+  "tests/test_core.py::test_update_codecs_roundtrip_shape_and_payload[topk_int8]",
+  "tests/test_core.py::test_user_provided_datasets_load[metr_la-200]",
+  "tests/test_core.py::test_user_provided_datasets_load[pems_bay-300]",
+  "tests/test_core.py::test_weighted_average_is_sample_weighted",
+  "tests/test_core.py::test_windows_are_finite_and_target_mask_is_boolean"
+]

@@ -1,0 +1,8 @@
+method,rounds_observed,validation_mae_60m_mph_last,converged_by_tolerance,convergence_round,absolute_improvement_tolerance,patience_rounds
+FedAvg,3,3.5676473903843635,False,,0.0001,2
+FedAvg + INT8,3,3.561536952546816,False,,0.0001,2
+FedAvg + top-k,3,3.4946452403116424,False,,0.0001,2
+HiLo-Fed,3,3.4148140776464837,False,,0.0001,2
+HiLo-Fed (fixed threshold),3,3.4159194750158455,True,3.0,0.0001,2
+HiLo-Fed (no LoRA),3,3.497847941814268,False,,0.0001,2
+HiLo-Fed (no trigger),3,3.3750705756650055,False,,0.0001,2

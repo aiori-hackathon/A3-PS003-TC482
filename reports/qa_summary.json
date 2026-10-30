@@ -1,0 +1,28 @@
+{
+  "started_at_epoch": 1793388087.2345808,
+  "steps": [
+    {
+      "name": "pytest",
+      "command": "/opt/pyvenv/bin/python -m pytest -v",
+      "exit_code": 0,
+      "runtime_seconds": 9.945,
+      "log": "reports/pytest_output.txt"
+    },
+    {
+      "name": "pipeline",
+      "command": "/opt/pyvenv/bin/python -m hilofed.pipeline --dataset both --fast --max-rows 1200 --rounds 3",
+      "exit_code": 0,
+      "runtime_seconds": 9.323,
+      "log": "reports/pipeline_output.txt"
+    },
+    {
+      "name": "report",
+      "command": "/opt/pyvenv/bin/python scripts/build_report.py",
+      "exit_code": 0,
+      "runtime_seconds": 0.739,
+      "log": "reports/report_output.txt"
+    }
+  ],
+  "status": "PASS",
+  "finished_at_epoch": 1793388107.2417653
+}

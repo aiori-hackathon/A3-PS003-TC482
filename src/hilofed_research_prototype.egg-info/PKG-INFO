@@ -1,0 +1,12 @@
+Metadata-Version: 2.4
+Name: hilofed-research-prototype
+Version: 0.3.0
+Summary: HiLo-Fed hierarchical federated traffic forecasting research prototype
+Requires-Python: >=3.10
+Requires-Dist: numpy>=1.24
+Requires-Dist: pandas>=2.0
+Requires-Dist: matplotlib>=3.7
+Provides-Extra: test
+Requires-Dist: pytest>=8.0; extra == "test"
+Provides-Extra: dashboard
+Requires-Dist: streamlit>=1.35; extra == "dashboard"

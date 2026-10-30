@@ -1,0 +1,55 @@
+{
+  "dataset_files_compared": 8,
+  "all_original_dataset_files_match": true,
+  "dataset_files": [
+    {
+      "file": "data/metr_la/METR-LA.csv",
+      "match": true,
+      "sha256": "5fa498de0c90f5ff9b67e7cf9654bec031a803b320a8eb13d48021b9983bec82",
+      "bytes": 72802450
+    },
+    {
+      "file": "data/metr_la/distances_la_2012.csv",
+      "match": true,
+      "sha256": "a576a2a3e28dbb959be6da22688e24dd1b246b81264595e129147c256cd53de5",
+      "bytes": 6393348
+    },
+    {
+      "file": "data/metr_la/graph_sensor_ids.txt",
+      "match": true,
+      "sha256": "3ba026caa2e6263ab0ea54b0fa1b125dbfa7216544cd05313b555e826292b990",
+      "bytes": 1448
+    },
+    {
+      "file": "data/metr_la/graph_sensor_locations.csv",
+      "match": true,
+      "sha256": "eb8ea96e07358b45d0e4ba3b89c2673fa20c54af50150249e627389e749ade6f",
+      "bytes": 6341
+    },
+    {
+      "file": "data/pems_bay/PEMS-BAY.csv",
+      "match": true,
+      "sha256": "c39dc8f5f3a7f1e9e9deeab1f3fdfa7b87d2b4e45b4075d4c3bd3c62c3051ef2",
+      "bytes": 85718439
+    },
+    {
+      "file": "data/pems_bay/PEMS-BAY-META.csv",
+      "match": true,
+      "sha256": "70e20aca2cc019c100eb83e13811845e801aca366051009327f027648f662213",
+      "bytes": 43875
+    },
+    {
+      "file": "data/pems_bay/distances_bay_2017.csv",
+      "match": true,
+      "sha256": "e5feed06bfa1ba4c554a946d0e03d99f2018365eec5a8f28fd8504dea9d082b5",
+      "bytes": 175771
+    },
+    {
+      "file": "data/pems_bay/graph_sensor_locations_bay.csv",
+      "match": true,
+      "sha256": "276ee01059610774d4e59572507f7e32eaac21f1f5882fcd9e3d7d426a4b7a6c",
+      "bytes": 9750
+    }
+  ],
+  "manifest_files": 59
+}
