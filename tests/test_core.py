@@ -112,5 +112,15 @@ def test_pipeline_smoke_produces_real_result_tables(tmp_path):
     hilo_logs = logs[logs.method == "HiLo-Fed"]
     assert hilo_logs.client_uploads.max() > 0
     assert hilo_logs.mean_threshold.nunique() > 1
+    # Verify the hierarchical route is actually exercised, not just listed in the UI.
+    client_logs = __import__("pandas").read_csv(tmp_path/"results"/"client_round_metrics.csv")
+    hilo_clients = client_logs[client_logs.method == "HiLo-Fed"]
+    assert {"edge_id", "uploaded", "forced_upload", "payload_bytes"}.issubset(hilo_clients.columns)
+    assert hilo_clients.edge_id.nunique() >= 2
+    assert hilo_clients.uploaded.any()
+    assert hilo_clients.loc[hilo_clients.uploaded, "payload_bytes"].gt(16).all()
+    assert hilo_clients.forced_upload.any()
+    assert hilo_logs.cloud_aggregated.any()
+    assert hilo_logs.edge_upload_bytes.sum() > 0
     assert (tmp_path/"results"/"convergence.csv").exists()
     assert (tmp_path/"results"/"plots"/"communication_accuracy_tradeoff.png").exists()
