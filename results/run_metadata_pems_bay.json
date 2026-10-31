@@ -32,7 +32,7 @@
     30,
     60
   ],
-  "runtime_seconds": 6.548717169999691,
+  "runtime_seconds": 6.554385772000387,
   "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
   "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
   "source_dataset_files": [
