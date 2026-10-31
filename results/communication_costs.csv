@@ -1,11 +1,12 @@
-dataset,method,client_upload_bytes,client_downlink_bytes,edge_upload_bytes,edge_downlink_bytes,total_bytes,counterfactual_full_upload_bytes,rounds,trainable_parameters,upload_reduction_pct,communication_scope
-metr_la,HiLo-Fed,240.0,2880.0,960.0,960.0,5040.0,2880.0,3,36,91.66666666666666,client and edge/cloud model payloads; 16-byte per-message header included
-metr_la,HiLo-Fed (no LoRA),1020.0,21888.0,7296.0,7296.0,37500.0,21888.0,3,300,95.33991228070175,client and edge/cloud model payloads; 16-byte per-message header included
-metr_la,HiLo-Fed (fixed threshold),240.0,2880.0,960.0,960.0,5040.0,2880.0,3,36,91.66666666666666,client and edge/cloud model payloads; 16-byte per-message header included
-metr_la,HiLo-Fed (no trigger),2880.0,2880.0,960.0,960.0,7680.0,2880.0,3,36,0.0,client and edge/cloud model payloads; 16-byte per-message header included
-metr_la,FedAvg,21888.0,21888.0,0.0,0.0,43776.0,21888.0,3,300,0.0,client and edge/cloud model payloads; 16-byte per-message header included
-metr_la,FedAvg + INT8,5760.0,21888.0,0.0,0.0,27648.0,21888.0,3,300,73.6842105263158,client and edge/cloud model payloads; 16-byte per-message header included
-metr_la,FedAvg + top-k,4608.0,21888.0,0.0,0.0,26496.0,21888.0,3,300,78.94736842105263,client and edge/cloud model payloads; 16-byte per-message header included
-metr_la,Centralized,,,,,,,3,300,,Not comparable: centralized pooled-data baseline; data-transfer cost excluded
-metr_la,Last-value,,,,,,,0,0,,Non-trained reference baseline; communication not applicable
-metr_la,Historical-average,,,,,,,0,0,,Non-trained reference baseline; communication not applicable
+dataset,method,client_upload_bytes,client_downlink_bytes,edge_upload_bytes,edge_downlink_bytes,total_bytes,counterfactual_full_upload_bytes,rounds,trainable_parameters,upload_reduction_pct,total_reduction_pct,weighted_cost_bytes,weighted_cost_mb,communication_scope,rmse_mph,accuracy_per_mb,target_rmse_mph,target_rmse_reached
+metr_la,HiLo-Fed,20080.0,144000.0,9600.0,9600.0,183280.0,144000.0,30,36,98.16520467836257,91.6264619883041,183280.0,0.18328,client and edge/cloud model payloads; 16-byte per-message header included,4.725900209353517,1.154517118738204,6.309844889364642,True
+metr_la,HiLo-Fed (no LoRA),122740.0,1094400.0,72960.0,72960.0,1363060.0,1094400.0,30,300,88.78472222222223,37.72569444444444,1363060.0,1.36306,client and edge/cloud model payloads; 16-byte per-message header included,5.401563477596319,0.1358205680623855,6.309844889364642,True
+metr_la,HiLo-Fed (fixed threshold),16720.0,144000.0,9600.0,9600.0,179920.0,144000.0,30,36,98.47222222222223,91.77997076023392,179920.0,0.17992,client and edge/cloud model payloads; 16-byte per-message header included,4.725693346789825,1.176129169070025,6.309844889364642,True
+metr_la,HiLo-Fed (no trigger),144000.0,144000.0,9600.0,9600.0,307200.0,144000.0,30,36,86.8421052631579,85.96491228070175,307200.0,0.3072,client and edge/cloud model payloads; 16-byte per-message header included,4.726195953445159,0.6887586476308606,6.309844889364642,True
+metr_la,HiLo-Fed (flat ablation),36000.0,144000.0,0.0,0.0,180000.0,144000.0,30,36,96.71052631578947,91.77631578947368,180000.0,0.18,client and edge/cloud model payloads; 16-byte per-message header included,4.7288904355100865,1.1748116458435773,6.309844889364642,True
+metr_la,FedAvg,1094400.0,1094400.0,0.0,0.0,2188800.0,1094400.0,30,300,0.0,0.0,2188800.0,2.1888,client and edge/cloud model payloads; 16-byte per-message header included,6.009376085109183,0.0760264191421361,6.309844889364642,True
+metr_la,FedAvg + INT8,288000.0,1094400.0,0.0,0.0,1382400.0,1094400.0,30,300,73.6842105263158,36.8421052631579,1382400.0,1.3824,client and edge/cloud model payloads; 16-byte per-message header included,6.01120229656838,0.12033859350276498,6.309844889364642,True
+metr_la,FedAvg + top-k,230400.0,1094400.0,0.0,0.0,1324800.0,1094400.0,30,300,78.94736842105263,39.473684210526315,1324800.0,1.3248,client and edge/cloud model payloads; 16-byte per-message header included,5.359960594611616,0.14082769911279383,6.309844889364642,True
+metr_la,Centralized,,,,,,,30,300,,,,,Not comparable: centralized pooled-data baseline; data-transfer cost excluded,5.852622224239922,,6.309844889364642,True
+metr_la,Last-value,,,,,,,0,0,,,,,Non-trained reference baseline; communication not applicable,4.943455018481101,,6.309844889364642,True
+metr_la,Historical-average,,,,,,,0,0,,,,,Non-trained reference baseline; communication not applicable,9.20581767661913,,6.309844889364642,False

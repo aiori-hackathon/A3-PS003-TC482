@@ -1,0 +1,474 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_dashboard" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"error":"#ba1a1a","primary-fixed":"#dbe1ff","background":"#faf8ff","surface-variant":"#dae2fd","surface-bright":"#faf8ff","primary-fixed-dim":"#b4c5ff","surface-container-highest":"#dae2fd","on-surface-variant":"#434655","on-primary-container":"#eeefff","surface-container-lowest":"#ffffff","secondary-fixed":"#89f5e7","tertiary-fixed":"#71f8e4","on-tertiary-fixed":"#00201c","secondary-fixed-dim":"#6bd8cb","inverse-on-surface":"#eef0ff","primary-container":"#2563eb","on-primary-fixed":"#00174b","on-secondary-fixed-variant":"#005049","tertiary":"#006056","on-primary-fixed-variant":"#003ea8","outline-variant":"#c3c6d7","surface-container-high":"#e2e7ff","outline":"#737686","surface-dim":"#d2d9f4","on-error":"#ffffff","secondary":"#006a61","tertiary-container":"#007b6e","on-secondary-container":"#006f66","surface-container-low":"#f2f3ff","on-tertiary-container":"#b1fff1","tertiary-fixed-dim":"#4fdbc8","on-primary":"#ffffff","surface":"#faf8ff","on-tertiary-fixed-variant":"#005048","on-background":"#131b2e","on-surface":"#131b2e","secondary-container":"#86f2e4","on-secondary":"#ffffff","surface-container":"#eaedff","on-tertiary":"#ffffff","surface-tint":"#0053db","primary":"#004ac6","inverse-primary":"#b4c5ff","inverse-surface":"#283044","error-container":"#ffdad6","on-error-container":"#93000a","on-secondary-fixed":"#00201d"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"space-xs":"0.25rem","space-sm":"0.5rem","space-md":"0.75rem","margin-lg":"2rem","gutter-sm":"0.5rem","gutter-lg":"1.5rem","margin-sm":"1rem","space-xl":"1.5rem","space-lg":"1rem","gutter":"1rem","margin":"1.5rem"},fontFamily:{"label-lg":["JetBrains Mono"],"headline-sm":["Inter"],"body-md":["Inter"],"body-lg":["Inter"],"headline-xl-mobile":["Inter"],"headline-lg":["Inter"],"label-sm":["JetBrains Mono"],"body-sm":["Inter"],"headline-md":["Inter"],"label-md":["JetBrains Mono"],"headline-xl":["Inter"]},fontSize:{"label-lg":["12px",{"lineHeight":"16px","letterSpacing":"0.04em","fontWeight":"500"}],"headline-sm":["15px",{"lineHeight":"22px","letterSpacing":"-0.01em","fontWeight":"600"}],"body-md":["13px",{"lineHeight":"20px","letterSpacing":"0em","fontWeight":"400"}],"body-lg":["15px",{"lineHeight":"24px","letterSpacing":"-0.005em","fontWeight":"400"}],"headline-xl-mobile":["28px",{"lineHeight":"36px","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-lg":["24px",{"lineHeight":"32px","letterSpacing":"-0.02em","fontWeight":"600"}],"label-sm":["10px",{"lineHeight":"12px","letterSpacing":"0.06em","fontWeight":"600"}],"body-sm":["12px",{"lineHeight":"18px","letterSpacing":"0em","fontWeight":"400"}],"headline-md":["18px",{"lineHeight":"26px","letterSpacing":"-0.015em","fontWeight":"600"}],"label-md":["11px",{"lineHeight":"14px","letterSpacing":"0.05em","fontWeight":"500"}],"headline-xl":["36px",{"lineHeight":"44px","letterSpacing":"-0.025em","fontWeight":"700"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-lowest z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col"><div class="h-16 px-space-lg flex items-center justify-between bg-surface-container-low/50"><div class="flex items-center gap-space-sm"><img alt="HiLo-Fed Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1XBQ7Hp-0BiD-cIAv5uul3JWH6gtuh_FU5d2Pk-kFXjLemGS6wu3jKEH7WcU7kGuJVZvEAb6fHWFyDHDfb3Yv_lTQx7j4UBAttYjXwyxWl3ZPFppO3ayGjPeh7L3tUB7MScVr-QpoovsnV-X4LY4_OCkfdWnxMyCdRULEtHsogBoMJpO_hD27m94NIJEHNc5drewWuxLoxXXP4hV6yn4ZP-m2IDKnCj_y7P0XLgR8gS"><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight leading-none">HiLo-Fed</span><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Research Core</span></div></div><span class="px-space-xs py-[2px] rounded bg-surface-container text-primary font-label-sm text-label-sm font-semibold tracking-wider">v2.4</span></div><div class="px-space-md py-space-sm"><div class="px-space-sm py-space-xs font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant font-semibold">Intelligence Console</div></div><nav class="flex flex-col gap-[2px] px-space-md" data-active-classes="bg-primary-container text-on-primary-container font-semibold shadow-sm"><a class="flex items-center gap-space-md px-space-md py-space-sm rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-all" data-path="overview" href="#"><span class="material-symbols-outlined text-[18px]">dashboard</span><span class="">Overview</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-all" data-path="traffic-network" href="#"><span class="material-symbols-outlined text-[18px]">hub</span><span class="">Traffic Network</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-all" data-path="forecast-explorer" href="#"><span class="material-symbols-outlined text-[18px]">insights</span><span class="">Forecast Explorer</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-all" data-path="benchmark" href="#"><span class="material-symbols-outlined text-[18px]">bar_chart</span><span class="">Benchmark</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-all" data-path="federated-learning" href="#"><span class="material-symbols-outlined text-[18px]">account_tree</span><span class="">Federated Learning</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-all" data-path="communication-lab" href="#"><span class="material-symbols-outlined text-[18px]">network_check</span><span class="">Communication Lab</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded bg-primary-container text-on-primary-container font-body-md text-body-md font-semibold shadow-sm transition-all" data-path="experiments-reports" href="#"><span class="material-symbols-outlined text-[18px]">query_stats</span><span class="">Experiments &amp; Reports</span></a></nav></div><div class="flex flex-col p-space-md gap-space-sm bg-surface-container-low/40"><div class="flex items-center justify-between px-space-md py-space-sm rounded bg-surface-container-lowest shadow-[0_1px_3px_rgba(15,23,42,0.04)]"><div class="flex items-center gap-space-sm"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary-fixed-dim opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span></span><span class="font-label-md text-label-md text-on-surface">Cluster Active</span></div><span class="font-label-sm text-label-sm text-secondary font-semibold">99.98%</span></div><div class="flex items-center justify-between pt-space-xs px-space-xs text-on-surface-variant"><div class="flex items-center gap-space-xs"><button class="p-space-xs rounded hover:bg-surface-container hover:text-on-surface transition-colors flex items-center" title="System Settings" type="button"><span class="material-symbols-outlined text-[18px]">tune</span></button><a class="p-space-xs rounded hover:bg-surface-container hover:text-on-surface transition-colors flex items-center" data-path="documentation" href="#" title="API &amp; Fed Docs"><span class="material-symbols-outlined text-[18px]">description</span></a></div><div class="flex items-center bg-surface-container p-[2px] rounded"><button class="p-space-xs rounded bg-surface-container-lowest text-on-surface flex items-center shadow-xs" title="Light Mode" type="button"><span class="material-symbols-outlined text-[14px]">light_mode</span></button><button class="p-space-xs rounded text-on-surface-variant hover:text-on-surface flex items-center" title="Dark Mode" type="button"><span class="material-symbols-outlined text-[14px]">dark_mode</span></button></div></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface-container-lowest/95 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-gutter-lg"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-sm"><img alt="HiLo-Fed Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1XBQ7Hp-0BiD-cIAv5uul3JWH6gtuh_FU5d2Pk-kFXjLemGS6wu3jKEH7WcU7kGuJVZvEAb6fHWFyDHDfb3Yv_lTQx7j4UBAttYjXwyxWl3ZPFppO3ayGjPeh7L3tUB7MScVr-QpoovsnV-X4LY4_OCkfdWnxMyCdRULEtHsogBoMJpO_hD27m94NIJEHNc5drewWuxLoxXXP4hV6yn4ZP-m2IDKnCj_y7P0XLgR8gS"><div class="flex flex-col"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm text-on-surface leading-tight">Urban Traffic Intelligence</span><span class="font-label-sm text-label-sm text-on-surface-variant font-normal">/</span><span class="font-label-sm text-label-sm text-on-surface-variant">Los Angeles Metro Grid</span></div><span class="font-label-sm text-label-sm text-primary tracking-wide">Tier-1 Federated Cluster</span></div></div><div class="hidden xl:flex items-center bg-surface-container p-[2px] rounded"><button class="px-space-md py-[4px] rounded bg-surface-container-lowest text-on-surface font-label-md text-label-md shadow-xs transition-colors" type="button">METR-LA (207 Sensors)</button><button class="px-space-md py-[4px] rounded text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors" type="button">PEMS-BAY (325 Sensors)</button></div></div><div class="flex items-center gap-space-md"><div class="hidden lg:flex items-center gap-space-sm px-space-md py-[6px] rounded bg-surface-container-low"><span class="material-symbols-outlined text-primary text-[16px]">science</span><div class="flex flex-col text-left"><span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant leading-none">Selected Topology</span><span class="font-label-md text-label-md text-on-surface font-medium truncate max-w-[210px]">Exp #842: HiLo Hierarchical Top-k</span></div></div><div class="hidden 2xl:flex items-center gap-space-md px-space-md py-[6px] rounded bg-surface-container-low"><div class="flex flex-col text-right"><span class="font-label-sm text-label-sm text-on-surface-variant leading-none">Epoch 120/120</span><span class="font-label-md text-label-md text-secondary font-semibold">Convergence: 99.4%</span></div><div class="w-12 h-1.5 bg-surface-container rounded-full overflow-hidden"><div class="h-full bg-secondary rounded-full w-[99%]"></div></div></div><button class="flex items-center gap-space-xs px-space-lg py-space-sm rounded bg-primary-container text-on-primary-container hover:bg-primary font-body-md text-body-md font-semibold transition-all shadow-sm" type="button"><span class="material-symbols-outlined text-[18px]">play_arrow</span><span class="">Run Experiment</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="w-full pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<div class="px-gutter-lg py-space-lg flex flex-col gap-space-lg">
+<div class="flex flex-col xl:flex-row items-start xl:items-center justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="px-space-xs py-[2px] rounded bg-secondary/10 text-secondary font-label-sm text-label-sm uppercase tracking-wider font-semibold">Empirical Benchmarks</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">•</span>
+<span class="font-label-sm text-label-sm text-primary font-medium">NeurIPS / KDD Ready Artifact Suite</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Empirical Experiments &amp; Research Benchmark Reports</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Active Experiment: <span class="font-label-md text-label-md text-primary font-semibold">#842: HiLo Hierarchical Top-k Sparsity</span> (METR-LA Grid 207 Sensors, 12-Horizon Step)</p>
+</div>
+<div class="flex items-center gap-space-sm self-stretch xl:self-auto">
+<button class="flex items-center gap-space-xs px-space-md py-space-sm rounded bg-surface-container-high hover:bg-surface-variant text-on-surface font-body-md text-body-md font-medium transition-all shadow-xs" id="bibtexBtn" onclick="toggleBibtexModal()" type="button">
+<span class="material-symbols-outlined text-[16px] text-primary">format_quote</span>
+<span class="">Copy BibTeX</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-md py-space-sm rounded bg-surface-container-lowest hover:bg-surface-container-high text-on-surface font-body-md text-body-md font-medium transition-all shadow-sm" type="button">
+<span class="material-symbols-outlined text-[16px] text-tertiary">picture_as_pdf</span>
+<span class="">Export Paper PDF / LaTeX</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-lg py-space-sm rounded bg-primary-container text-on-primary-container hover:bg-primary font-body-md text-body-md font-semibold transition-all shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span class="">New Experiment</span>
+</button>
+</div>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-xs bg-surface-container-low p-1 rounded-lg overflow-x-auto">
+<button class="px-space-md py-space-xs rounded bg-surface-container-lowest text-primary font-label-md text-label-md font-semibold shadow-xs whitespace-nowrap" type="button">All Experiments (18)</button>
+<button class="px-space-md py-space-xs rounded text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors whitespace-nowrap" type="button">Completed (14)</button>
+<button class="px-space-md py-space-xs rounded text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors whitespace-nowrap flex items-center gap-1" type="button">
+<span class="h-1.5 w-1.5 rounded-full bg-secondary animate-pulse"></span> Running (1)
+        </button>
+<button class="px-space-md py-space-xs rounded text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors whitespace-nowrap" type="button">Queued (3)</button>
+</div>
+<div class="flex flex-wrap items-center gap-space-sm">
+<div class="relative flex-1 sm:w-64">
+<span class="material-symbols-outlined absolute left-2.5 top-1/2 -translate-y-1/2 text-[16px] text-on-surface-variant">search</span>
+<input class="w-full pl-8 pr-3 py-1.5 rounded bg-surface-container-low text-on-surface font-body-sm text-body-sm focus:outline-none focus:bg-surface-container-lowest transition-colors placeholder:text-on-surface-variant/60" placeholder="Filter runs, seeds, arch..." type="text">
+</div>
+<select class="px-3 py-1.5 rounded bg-surface-container-low text-on-surface font-label-md text-label-md focus:outline-none">
+<option>Model: All (STGCN, DCRNN, GWNet)</option>
+<option>STGCN Backbone</option>
+<option>DCRNN Backbone</option>
+<option>Graph WaveNet</option>
+</select>
+<select class="px-3 py-1.5 rounded bg-surface-container-low text-on-surface font-label-md text-label-md focus:outline-none">
+<option>Aggregation: HiLo Hierarchical</option>
+<option>Vanilla FedAvg</option>
+<option>FedProx (μ=0.01)</option>
+<option>Top-k Sparsified</option>
+</select>
+<select class="px-3 py-1.5 rounded bg-surface-container-low text-on-surface font-label-md text-label-md focus:outline-none">
+<option>Dataset: METR-LA (207)</option>
+<option>PEMS-BAY (325)</option>
+</select>
+</div>
+</div>
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg items-start">
+<div class="xl:col-span-7 flex flex-col gap-space-md">
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-md">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-semibold">Table 1: State-of-the-Art Cross-Validation</span>
+<h2 class="font-headline-md text-headline-md text-on-surface tracking-tight">Comprehensive Empirical Benchmark Matrix &amp; Ablation Study</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Evaluation on METR-LA grid over 120 communication rounds. Speed error measured in mph (MAE/RMSE).</p>
+</div>
+<span class="px-space-xs py-[2px] rounded bg-surface-container-high text-primary font-label-sm text-label-sm font-semibold whitespace-nowrap">k=0.05 Top-k</span>
+</div>
+<div class="overflow-x-auto -mx-space-lg px-space-lg">
+<table class="w-full text-left font-body-sm text-body-sm">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+<th class="py-space-sm px-space-md rounded-l">Methodology</th>
+<th class="py-space-sm px-space-sm text-center">15m MAE/RMSE</th>
+<th class="py-space-sm px-space-sm text-center">30m MAE/RMSE</th>
+<th class="py-space-sm px-space-sm text-center">60m MAE/RMSE</th>
+<th class="py-space-sm px-space-sm text-center">Payload</th>
+<th class="py-space-sm px-space-sm text-center">Privacy (ε)</th>
+<th class="py-space-sm px-space-md text-right rounded-r">Pareto η</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-low">
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="py-space-sm px-space-md font-medium text-on-surface">
+<div class="flex flex-col">
+<span class="">Centralized STGCN</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Full Topology Oracle</span>
+</div>
+</td>
+<td class="py-space-sm px-space-sm text-center font-label-md text-label-md text-on-surface">2.88 / 5.21</td>
+<td class="py-space-sm px-space-sm text-center font-label-md text-label-md text-on-surface">3.47 / 6.30</td>
+<td class="py-space-sm px-space-sm text-center font-label-md text-label-md text-on-surface">4.12 / 7.62</td>
+<td class="py-space-sm px-space-sm text-center font-label-md text-label-md text-on-surface-variant">N/A (Raw Data)</td>
+<td class="py-space-sm px-space-sm text-center font-label-md text-label-md text-error">∞ (None)</td>
+<td class="py-space-sm px-space-md text-right font-label-md text-label-md text-on-surface-variant">0.42</td>
+</tr>
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="py-space-sm px-space-md font-medium text-on-surface">
+<div class="flex flex-col">
+<span class="">Centralized DCRNN</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Recurrent Graph Diffusion</span>
+</div>
+</td>
+<td class="py-space-sm px-space-sm text-center font-label-md text-label-md text-on-surface">2.77 / 5.38</td>
+<td class="py-space-sm px-space-sm text-center font-label-md text-label-md text-on-surface">3.15 / 6.45</td>
+<td class="py-space-sm px-space-sm text-center font-label-md text-label-md text-on-surface">3.60 / 7.60</td>
+<td class="py-space-sm px-space-sm text-center font-label-md text-label-md text-on-surface-variant">N/A (Raw Data)</td>
+<td class="py-space-sm px-space-sm text-center font-label-md text-label-md text-error">∞ (None)</td>
+<td class="py-space-sm px-space-md text-right font-label-md text-label-md text-on-surface-variant">0.49</td>
+</tr>
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="py-space-sm px-space-md font-medium text-on-surface">
+<div class="flex flex-col">
+<span class="">Vanilla FedAvg</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">McMahan et al.</span>
+</div>
+</td>
+<td class="py-space-sm px-space-sm text-center font-label-md text-label-md text-on-surface">3.42 / 6.12</td>
+<td class="py-space-sm px-space-sm text-center font-label-md text-label-md text-on-surface">3.99 / 7.21</td>
+<td class="py-space-sm px-space-sm text-center font-label-md text-label-md text-on-surface">4.88 / 8.94</td>
+<td class="py-space-sm px-space-sm text-center font-label-md text-label-md text-on-surface">1,824.0 MB</td>
+<td class="py-space-sm px-space-sm text-center font-label-md text-label-md text-secondary">ε=4.8</td>
+<td class="py-space-sm px-space-md text-right font-label-md text-label-md text-on-surface-variant">0.51</td>
+</tr>
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="py-space-sm px-space-md font-medium text-on-surface">
+<div class="flex flex-col">
+<span class="">FedProx (μ=0.01)</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Heterogeneity Regularized</span>
+</div>
+</td>
+<td class="py-space-sm px-space-sm text-center font-label-md text-label-md text-on-surface">3.18 / 5.82</td>
+<td class="py-space-sm px-space-sm text-center font-label-md text-label-md text-on-surface">3.65 / 6.78</td>
+<td class="py-space-sm px-space-sm text-center font-label-md text-label-md text-on-surface">4.32 / 8.10</td>
+<td class="py-space-sm px-space-sm text-center font-label-md text-label-md text-on-surface">1,824.0 MB</td>
+<td class="py-space-sm px-space-sm text-center font-label-md text-label-md text-secondary">ε=4.8</td>
+<td class="py-space-sm px-space-md text-right font-label-md text-label-md text-on-surface-variant">0.63</td>
+</tr>
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="py-space-sm px-space-md font-medium text-on-surface">
+<div class="flex flex-col">
+<span class="">Top-k Sparsification</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Fixed 90% Masked FedAvg</span>
+</div>
+</td>
+<td class="py-space-sm px-space-sm text-center font-label-md text-label-md text-on-surface">3.24 / 5.95</td>
+<td class="py-space-sm px-space-sm text-center font-label-md text-label-md text-on-surface">3.74 / 6.94</td>
+<td class="py-space-sm px-space-sm text-center font-label-md text-label-md text-on-surface">4.48 / 8.35</td>
+<td class="py-space-sm px-space-sm text-center font-label-md text-label-md text-on-surface">246.2 MB</td>
+<td class="py-space-sm px-space-sm text-center font-label-md text-label-md text-secondary">ε=3.2</td>
+<td class="py-space-sm px-space-md text-right font-label-md text-label-md text-on-surface-variant">0.78</td>
+</tr>
+<tr class="bg-primary-fixed/30 hover:bg-primary-fixed/40 transition-colors">
+<td class="py-space-md px-space-md font-semibold text-primary">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-primary">verified</span>
+<div class="flex flex-col">
+<span class="tracking-tight font-headline-sm text-headline-sm text-primary">HiLo-Fed (Ours)</span>
+<span class="font-label-sm text-label-sm text-on-primary-fixed-variant">Hierarchical + Top-k Dynamic</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-sm text-center font-label-md text-label-md font-bold text-on-surface">
+<span class="px-1.5 py-0.5 rounded bg-surface-container-lowest text-primary">2.14 / 4.19</span>
+</td>
+<td class="py-space-md px-space-sm text-center font-label-md text-label-md font-bold text-on-surface">
+<span class="px-1.5 py-0.5 rounded bg-surface-container-lowest text-primary">2.39 / 4.78</span>
+</td>
+<td class="py-space-md px-space-sm text-center font-label-md text-label-md font-bold text-on-surface">
+<div class="flex flex-col items-center">
+<span class="px-1.5 py-0.5 rounded bg-secondary text-on-secondary shadow-xs">2.68 / 5.22</span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold mt-0.5">SOTA</span>
+</div>
+</td>
+<td class="py-space-md px-space-sm text-center font-label-md text-label-md font-semibold text-on-surface">
+<div class="flex flex-col items-center">
+<span class="text-primary font-bold">142.8 MB</span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">92.2% Saved</span>
+</div>
+</td>
+<td class="py-space-md px-space-sm text-center font-label-md text-label-md font-bold text-secondary">
+<span class="px-1.5 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed">ε=1.92</span>
+</td>
+<td class="py-space-md px-space-md text-right font-label-md text-label-md font-bold text-primary">
+<span class="px-2 py-1 rounded bg-primary text-on-primary shadow-xs">0.96</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="flex flex-wrap items-center justify-between gap-space-sm pt-space-xs text-on-surface-variant font-label-sm text-label-sm">
+<div class="flex items-center gap-space-md">
+<span class="flex items-center gap-1"><span class="h-2 w-2 rounded-full bg-secondary"></span> State-of-the-Art in Distributed Graph Sparsity</span>
+<span class="flex items-center gap-1"><span class="h-2 w-2 rounded-full bg-primary"></span> Pareto Superiority Bound Confirmed</span>
+</div>
+<span class="">p &lt; 0.001 (Wilcoxon Signed-Rank Test)</span>
+</div>
+</div>
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary font-semibold">Telemetry Trace</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Convergence Trajectory Across 120 Epochs</h3>
+</div>
+<div class="flex items-center gap-space-sm font-label-sm text-label-sm">
+<span class="flex items-center gap-1 text-primary"><span class="w-3 h-0.5 bg-primary"></span> HiLo-Fed</span>
+<span class="flex items-center gap-1 text-on-surface-variant"><span class="w-3 h-0.5 bg-outline"></span> FedAvg</span>
+<span class="flex items-center gap-1 text-tertiary"><span class="w-3 h-0.5 bg-tertiary"></span> FedProx</span>
+</div>
+</div>
+<div class="w-full h-36 bg-surface-container-low/50 rounded-lg p-space-sm relative flex items-end">
+<svg class="w-full h-full overflow-visible" preserveAspectRatio="none" viewBox="0 0 500 120">
+<path class="text-surface-container-high" d="M 0,20 L 500,20" stroke="currentColor" stroke-dasharray="2,2" stroke-width="1"></path>
+<path class="text-surface-container-high" d="M 0,60 L 500,60" stroke="currentColor" stroke-dasharray="2,2" stroke-width="1"></path>
+<path class="text-surface-container-high" d="M 0,100 L 500,100" stroke="currentColor" stroke-dasharray="2,2" stroke-width="1"></path>
+<path class="text-outline" d="M 0,110 C 80,105 150,90 250,75 C 350,60 420,50 500,45" fill="none" stroke="currentColor" stroke-width="2"></path>
+<path class="text-tertiary" d="M 0,110 C 70,95 160,78 260,62 C 360,46 440,38 500,34" fill="none" stroke="currentColor" stroke-width="2"></path>
+<path class="text-primary" d="M 0,110 C 40,70 100,32 180,24 C 280,16 380,12 500,10" fill="none" stroke="currentColor" stroke-width="3"></path>
+<circle class="text-primary" cx="500" cy="10" fill="currentColor" r="4"></circle>
+<circle class="text-tertiary" cx="500" cy="34" fill="currentColor" r="3"></circle>
+<circle class="text-outline" cx="500" cy="45" fill="currentColor" r="3"></circle>
+</svg>
+<div class="absolute left-3 top-2 font-label-sm text-label-sm text-on-surface-variant">Epoch 1</div>
+<div class="absolute right-3 top-2 font-label-sm text-label-sm text-primary font-bold">Epoch 120 (HiLo Loss: 0.041)</div>
+</div>
+</div>
+</div>
+<div class="xl:col-span-5 flex flex-col gap-space-lg">
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-md">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-semibold">Figure 4: Trade-off Frontier</span>
+<h2 class="font-headline-md text-headline-md text-on-surface tracking-tight">Pareto Frontier: Comm. vs Accuracy</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Logarithmic communication cost (MB) vs 60m MAE (mph)</p>
+</div>
+<span class="px-space-xs py-[2px] rounded bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-semibold">Optimal Edge</span>
+</div>
+<div class="w-full h-64 bg-surface-container-low/40 rounded-lg p-space-md relative flex flex-col justify-between">
+<div class="absolute left-4 top-4 font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">arrow_upward</span> MAE Error (mph)
+            </div>
+<div class="absolute right-4 bottom-4 font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+              Comm. Payload (Log MB) <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</div>
+<svg class="w-full h-full" viewBox="0 0 320 200">
+<line class="text-outline-variant" stroke="currentColor" stroke-width="1" x1="40" x2="40" y1="20" y2="170"></line>
+<line class="text-outline-variant" stroke="currentColor" stroke-width="1" x1="40" x2="300" y1="170" y2="170"></line>
+<path class="text-secondary/40" d="M 70,55 Q 120,130 270,155" fill="none" stroke="currentColor" stroke-dasharray="3,3" stroke-width="2"></path>
+<g class="cursor-pointer">
+<circle class="text-on-surface-variant" cx="270" cy="155" fill="currentColor" r="7"></circle>
+<text class="font-label-sm fill-on-surface-variant" font-size="9" text-anchor="middle" x="270" y="142">FedAvg (1824 MB)</text>
+</g>
+<g class="cursor-pointer">
+<circle class="text-tertiary" cx="250" cy="135" fill="currentColor" r="7"></circle>
+<text class="font-label-sm fill-tertiary" font-size="9" text-anchor="middle" x="250" y="122">FedProx (1824 MB)</text>
+</g>
+<g class="cursor-pointer">
+<circle class="text-outline" cx="150" cy="120" fill="currentColor" r="7"></circle>
+<text class="font-label-sm fill-on-surface-variant" font-size="9" text-anchor="middle" x="150" y="107">Top-k Fed (246 MB)</text>
+</g>
+<g class="cursor-pointer">
+<circle class="text-primary animate-pulse" cx="85" cy="45" fill="currentColor" r="10"></circle>
+<circle class="text-on-primary" cx="85" cy="45" fill="currentColor" r="6"></circle>
+<text class="font-label-sm fill-primary" font-size="10" font-weight="bold" text-anchor="middle" x="85" y="30">HiLo-Fed (142.8 MB, 2.68 MAE)</text>
+</g>
+</svg>
+<div class="px-space-sm py-1 rounded bg-surface-container-lowest/90 backdrop-blur self-start font-label-sm text-label-sm text-secondary font-medium">
+              ★ HiLo-Fed achieves 12.7x payload reduction at +45% accuracy gain vs FedAvg
+            </div>
+</div>
+</div>
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-tertiary font-semibold">Modular Attribution</span>
+<h2 class="font-headline-md text-headline-md text-on-surface tracking-tight">Ablation Study Breakdown</h2>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Cumulative Metric Yield</span>
+</div>
+<div class="flex flex-col gap-space-md">
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between font-label-md text-label-md">
+<span class="text-on-surface font-medium">Spatial Graph Sparsification (Dynamic k-NN)</span>
+<span class="text-primary font-bold">+9.4% Acc. Gain</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container overflow-hidden">
+<div class="h-full bg-primary rounded-full w-[45%]"></div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Pruning inter-cluster correlation noise across highway segments.</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between font-label-md text-label-md">
+<span class="text-on-surface font-medium">Hierarchical Tier-1 Regional Aggregation</span>
+<span class="text-secondary font-bold">+14.2% Acc. Gain</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container overflow-hidden">
+<div class="h-full bg-secondary rounded-full w-[65%]"></div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Locality-preserving edge edge node sync prior to global coordination.</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between font-label-md text-label-md">
+<span class="text-on-surface font-medium">Top-k Bi-directional Gradient Compression</span>
+<span class="text-tertiary font-bold">-68.4% Bandwidth</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container overflow-hidden">
+<div class="h-full bg-tertiary rounded-full w-[88%]"></div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Dynamic error feedback accumulator preserving tail weight gradients.</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-md">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-sm">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary font-semibold">Open Reproducibility</span>
+<h2 class="font-headline-md text-headline-md text-on-surface tracking-tight">Experiment Artifacts &amp; Checkpoint Downloads</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Validated checksums for Exp #842 (PyTorch 2.4.0 / CUDA 12.2 / Flower Fed Framework)</p>
+</div>
+<button class="flex items-center gap-space-xs px-space-md py-space-sm rounded bg-surface-container-high hover:bg-surface-variant text-on-surface font-body-sm text-body-sm font-semibold transition-all" onclick="downloadAllArtifacts()" type="button">
+<span class="material-symbols-outlined text-[16px] text-primary">download</span>
+<span class="">Download Bundle (.tar.gz, 482MB)</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-space-md pt-space-xs">
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col justify-between gap-space-sm hover:shadow-xs transition-shadow">
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[24px]">model_training</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-semibold text-on-surface truncate">model_ckpt_e120.pt</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">PyTorch State Dict • 14.8 MB</span>
+</div>
+</div>
+<button class="w-full mt-2 py-1 rounded bg-surface-container-lowest text-primary hover:bg-primary hover:text-on-primary font-label-md text-label-md font-medium transition-colors flex items-center justify-center gap-1" type="button">
+<span class="material-symbols-outlined text-[14px]">download</span> Get Weights
+          </button>
+</div>
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col justify-between gap-space-sm hover:shadow-xs transition-shadow">
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[24px]">dataset</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-semibold text-on-surface truncate">comm_trace_e120.csv</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Raw Telemetry Packets • 88.2 MB</span>
+</div>
+</div>
+<button class="w-full mt-2 py-1 rounded bg-surface-container-lowest text-primary hover:bg-primary hover:text-on-primary font-label-md text-label-md font-medium transition-colors flex items-center justify-center gap-1" type="button">
+<span class="material-symbols-outlined text-[14px]">download</span> Get Traces
+          </button>
+</div>
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col justify-between gap-space-sm hover:shadow-xs transition-shadow">
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-tertiary text-[24px]">share</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-semibold text-on-surface truncate">metr_la_graph.json</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Adjacency &amp; Coordinates • 2.4 MB</span>
+</div>
+</div>
+<button class="w-full mt-2 py-1 rounded bg-surface-container-lowest text-primary hover:bg-primary hover:text-on-primary font-label-md text-label-md font-medium transition-colors flex items-center justify-center gap-1" type="button">
+<span class="material-symbols-outlined text-[14px]">download</span> Get Graph
+          </button>
+</div>
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col justify-between gap-space-sm hover:shadow-xs transition-shadow">
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-on-surface-variant text-[24px]">terminal</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-semibold text-on-surface truncate">train_pipeline.yaml</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Hyperparameters Config • 18 KB</span>
+</div>
+</div>
+<button class="w-full mt-2 py-1 rounded bg-surface-container-lowest text-primary hover:bg-primary hover:text-on-primary font-label-md text-label-md font-medium transition-colors flex items-center justify-center gap-1" type="button">
+<span class="material-symbols-outlined text-[14px]">download</span> Get Config
+          </button>
+</div>
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col justify-between gap-space-sm hover:shadow-xs transition-shadow">
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-error text-[24px]">draft</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-semibold text-on-surface truncate">paper_camera_ready.pdf</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Full IEEE Format Pre-print • 4.1 MB</span>
+</div>
+</div>
+<button class="w-full mt-2 py-1 rounded bg-surface-container-lowest text-primary hover:bg-primary hover:text-on-primary font-label-md text-label-md font-medium transition-colors flex items-center justify-center gap-1" type="button">
+<span class="material-symbols-outlined text-[14px]">download</span> Get PDF
+          </button>
+</div>
+</div>
+<div class="p-space-md rounded-lg bg-surface-container-high/40 flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<span class="material-symbols-outlined text-primary text-[20px]">menu_book</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">Official Citation Record</span>
+<span class="font-label-md text-label-md text-on-surface font-medium">"HiLo-Fed: Hierarchical and Sparsified Federated Spatiotemporal Graph Learning for Urban Traffic Speed Forecasting"</span>
+</div>
+</div>
+<button class="px-space-md py-1 rounded bg-surface-container-lowest hover:bg-surface-variant text-primary font-label-sm text-label-sm font-semibold transition-colors flex items-center gap-1 shadow-xs whitespace-nowrap" id="copyCitationInline" onclick="copyCitationText()" type="button">
+<span class="material-symbols-outlined text-[14px]">content_copy</span>
+<span id="citationStatus" class="">Copy Citation</span>
+</button>
+</div>
+</div>
+</div>
+<div class="fixed inset-0 bg-inverse-surface/40 backdrop-blur-sm z-50 hidden flex items-center justify-center p-space-md" id="bibtexModal">
+<div class="bg-surface-container-lowest rounded-xl max-w-xl w-full p-space-lg shadow-xl flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">format_quote</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">BibTeX Citation Entry</h3>
+</div>
+<button class="text-on-surface-variant hover:text-on-surface" onclick="toggleBibtexModal()" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="p-space-md rounded bg-surface-container-low font-label-sm text-label-sm text-on-surface overflow-x-auto whitespace-pre">
+@article{hilofed2025traffic,
+  title={HiLo-Fed: Hierarchical and Sparsified Federated Spatiotemporal Graph Learning for Urban Traffic Speed Forecasting},
+  author={HiLo Research Consortium and Traffic Intelligence Lab},
+  journal={IEEE Transactions on Intelligent Transportation Systems},
+  year={2025},
+  volume={26},
+  number={4},
+  pages={5120--5135},
+  publisher={IEEE}
+}</div>
+<div class="flex items-center justify-end gap-space-sm">
+<button class="px-space-md py-space-xs rounded bg-surface-container text-on-surface font-body-sm text-body-sm" onclick="toggleBibtexModal()" type="button">Close</button>
+<button class="px-space-md py-space-xs rounded bg-primary-container text-on-primary-container font-body-sm text-body-sm font-semibold" onclick="copyBibtexToClipboard()" type="button">Copy to Clipboard</button>
+</div>
+</div>
+</div>
+<script>
+    function toggleBibtexModal() {
+      const modal = document.getElementById('bibtexModal');
+      if (modal.classList.contains('hidden')) {
+        modal.classList.remove('hidden');
+      } else {
+        modal.classList.add('hidden');
+      }
+    }
+
+    function copyBibtexToClipboard() {
+      const bibtex = `@article{hilofed2025traffic,\n  title={HiLo-Fed: Hierarchical and Sparsified Federated Spatiotemporal Graph Learning for Urban Traffic Speed Forecasting},\n  author={HiLo Research Consortium and Traffic Intelligence Lab},\n  journal={IEEE Transactions on Intelligent Transportation Systems},\n  year={2025},\n  volume={26},\n  number={4},\n  pages={5120--5135},\n  publisher={IEEE}\n}`;
+      navigator.clipboard.writeText(bibtex).then(() => {
+        alert('BibTeX copied to clipboard!');
+        toggleBibtexModal();
+      });
+    }
+
+    function copyCitationText() {
+      const cit = 'HiLo Research Consortium, "HiLo-Fed: Hierarchical and Sparsified Federated Spatiotemporal Graph Learning for Urban Traffic Speed Forecasting", IEEE T-ITS 2025.';
+      navigator.clipboard.writeText(cit).then(() => {
+        const status = document.getElementById('citationStatus');
+        status.textContent = 'Copied!';
+        setTimeout(() => {
+          status.textContent = 'Copy Citation';
+        }, 2000);
+      });
+    }
+
+    function downloadAllArtifacts() {
+      alert('Generating consolidated archive bundle for Experiment #842 (482MB)... Download initiated.');
+    }
+  </script>
+</div></main></div>
+
+
+
+
+</body></html>

@@ -17,6 +17,11 @@ def run_experiment(
     max_rows: int = 1200,
     seed: int = 17,
     partition: str = "sensor",
+    tau: float = 0.006,
+    rank: int = 1,
+    k: int = 2,
+    w_edge: float = 1.0,
+    w_cloud: float = 1.0,
     timeout_seconds: int = 1800,
 ) -> dict[str, Any]:
     """Run the real HiLo-Fed pipeline and return its captured process result.
@@ -46,6 +51,7 @@ def run_experiment(
         "--fast", "--max-rows", str(int(max_rows)),
         "--rounds", str(int(rounds)), "--seed", str(int(seed)),
         "--partition", partition,
+        "--tau", str(float(tau)), "--rank", str(int(rank)), "--k", str(int(k)), "--w-edge", str(float(w_edge)), "--w-cloud", str(float(w_cloud)),
         "--data-dir", str(root / "data"),
         "--output-dir", str(root),
     ]

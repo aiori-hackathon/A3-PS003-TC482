@@ -1,0 +1,566 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_dashboard" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"error":"#ba1a1a","primary-fixed":"#dbe1ff","background":"#faf8ff","surface-variant":"#dae2fd","surface-bright":"#faf8ff","primary-fixed-dim":"#b4c5ff","surface-container-highest":"#dae2fd","on-surface-variant":"#434655","on-primary-container":"#eeefff","surface-container-lowest":"#ffffff","secondary-fixed":"#89f5e7","tertiary-fixed":"#71f8e4","on-tertiary-fixed":"#00201c","secondary-fixed-dim":"#6bd8cb","inverse-on-surface":"#eef0ff","primary-container":"#2563eb","on-primary-fixed":"#00174b","on-secondary-fixed-variant":"#005049","tertiary":"#006056","on-primary-fixed-variant":"#003ea8","outline-variant":"#c3c6d7","surface-container-high":"#e2e7ff","outline":"#737686","surface-dim":"#d2d9f4","on-error":"#ffffff","secondary":"#006a61","tertiary-container":"#007b6e","on-secondary-container":"#006f66","surface-container-low":"#f2f3ff","on-tertiary-container":"#b1fff1","tertiary-fixed-dim":"#4fdbc8","on-primary":"#ffffff","surface":"#faf8ff","on-tertiary-fixed-variant":"#005048","on-background":"#131b2e","on-surface":"#131b2e","secondary-container":"#86f2e4","on-secondary":"#ffffff","surface-container":"#eaedff","on-tertiary":"#ffffff","surface-tint":"#0053db","primary":"#004ac6","inverse-primary":"#b4c5ff","inverse-surface":"#283044","error-container":"#ffdad6","on-error-container":"#93000a","on-secondary-fixed":"#00201d"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"space-xs":"0.25rem","space-sm":"0.5rem","space-md":"0.75rem","margin-lg":"2rem","gutter-sm":"0.5rem","gutter-lg":"1.5rem","margin-sm":"1rem","space-xl":"1.5rem","space-lg":"1rem","gutter":"1rem","margin":"1.5rem"},fontFamily:{"label-lg":["JetBrains Mono"],"headline-sm":["Inter"],"body-md":["Inter"],"body-lg":["Inter"],"headline-xl-mobile":["Inter"],"headline-lg":["Inter"],"label-sm":["JetBrains Mono"],"body-sm":["Inter"],"headline-md":["Inter"],"label-md":["JetBrains Mono"],"headline-xl":["Inter"]},fontSize:{"label-lg":["12px",{"lineHeight":"16px","letterSpacing":"0.04em","fontWeight":"500"}],"headline-sm":["15px",{"lineHeight":"22px","letterSpacing":"-0.01em","fontWeight":"600"}],"body-md":["13px",{"lineHeight":"20px","letterSpacing":"0em","fontWeight":"400"}],"body-lg":["15px",{"lineHeight":"24px","letterSpacing":"-0.005em","fontWeight":"400"}],"headline-xl-mobile":["28px",{"lineHeight":"36px","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-lg":["24px",{"lineHeight":"32px","letterSpacing":"-0.02em","fontWeight":"600"}],"label-sm":["10px",{"lineHeight":"12px","letterSpacing":"0.06em","fontWeight":"600"}],"body-sm":["12px",{"lineHeight":"18px","letterSpacing":"0em","fontWeight":"400"}],"headline-md":["18px",{"lineHeight":"26px","letterSpacing":"-0.015em","fontWeight":"600"}],"label-md":["11px",{"lineHeight":"14px","letterSpacing":"0.05em","fontWeight":"500"}],"headline-xl":["36px",{"lineHeight":"44px","letterSpacing":"-0.025em","fontWeight":"700"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-lowest z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col"><div class="h-16 px-space-lg flex items-center justify-between bg-surface-container-low/50"><div class="flex items-center gap-space-sm"><img alt="HiLo-Fed Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1XBQ7Hp-0BiD-cIAv5uul3JWH6gtuh_FU5d2Pk-kFXjLemGS6wu3jKEH7WcU7kGuJVZvEAb6fHWFyDHDfb3Yv_lTQx7j4UBAttYjXwyxWl3ZPFppO3ayGjPeh7L3tUB7MScVr-QpoovsnV-X4LY4_OCkfdWnxMyCdRULEtHsogBoMJpO_hD27m94NIJEHNc5drewWuxLoxXXP4hV6yn4ZP-m2IDKnCj_y7P0XLgR8gS"><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight leading-none">HiLo-Fed</span><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Research Core</span></div></div><span class="px-space-xs py-[2px] rounded bg-surface-container text-primary font-label-sm text-label-sm font-semibold tracking-wider">v2.4</span></div><div class="px-space-md py-space-sm"><div class="px-space-sm py-space-xs font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant font-semibold">Intelligence Console</div></div><nav class="flex flex-col gap-[2px] px-space-md" data-active-classes="bg-primary-container text-on-primary-container font-semibold shadow-sm"><a class="flex items-center gap-space-md px-space-md py-space-sm rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-all" data-path="overview" href="#"><span class="material-symbols-outlined text-[18px]">dashboard</span><span class="">Overview</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded bg-primary-container text-on-primary-container font-semibold shadow-sm transition-all" data-path="traffic-network" href="#"><span class="material-symbols-outlined text-[18px]">hub</span><span class="">Traffic Network</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-all" data-path="forecast-explorer" href="#"><span class="material-symbols-outlined text-[18px]">insights</span><span class="">Forecast Explorer</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-all" data-path="benchmark" href="#"><span class="material-symbols-outlined text-[18px]">bar_chart</span><span class="">Benchmark</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-all" data-path="federated-learning" href="#"><span class="material-symbols-outlined text-[18px]">account_tree</span><span class="">Federated Learning</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-all" data-path="communication-lab" href="#"><span class="material-symbols-outlined text-[18px]">network_check</span><span class="">Communication Lab</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-all" data-path="experiments-reports" href="#"><span class="material-symbols-outlined text-[18px]">query_stats</span><span class="">Experiments &amp; Reports</span></a></nav></div><div class="flex flex-col p-space-md gap-space-sm bg-surface-container-low/40"><div class="flex items-center justify-between px-space-md py-space-sm rounded bg-surface-container-lowest shadow-[0_1px_3px_rgba(15,23,42,0.04)]"><div class="flex items-center gap-space-sm"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary-fixed-dim opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span></span><span class="font-label-md text-label-md text-on-surface">Cluster Active</span></div><span class="font-label-sm text-label-sm text-secondary font-semibold">99.98%</span></div><div class="flex items-center justify-between pt-space-xs px-space-xs text-on-surface-variant"><div class="flex items-center gap-space-xs"><button class="p-space-xs rounded hover:bg-surface-container hover:text-on-surface transition-colors flex items-center" title="System Settings" type="button"><span class="material-symbols-outlined text-[18px]">tune</span></button><a class="p-space-xs rounded hover:bg-surface-container hover:text-on-surface transition-colors flex items-center" data-path="documentation" href="#" title="API &amp; Fed Docs"><span class="material-symbols-outlined text-[18px]">description</span></a></div><div class="flex items-center bg-surface-container p-[2px] rounded"><button class="p-space-xs rounded bg-surface-container-lowest text-on-surface flex items-center shadow-xs" title="Light Mode" type="button"><span class="material-symbols-outlined text-[14px]">light_mode</span></button><button class="p-space-xs rounded text-on-surface-variant hover:text-on-surface flex items-center" title="Dark Mode" type="button"><span class="material-symbols-outlined text-[14px]">dark_mode</span></button></div></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface-container-lowest/95 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-gutter-lg"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-sm"><img alt="HiLo-Fed Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1XBQ7Hp-0BiD-cIAv5uul3JWH6gtuh_FU5d2Pk-kFXjLemGS6wu3jKEH7WcU7kGuJVZvEAb6fHWFyDHDfb3Yv_lTQx7j4UBAttYjXwyxWl3ZPFppO3ayGjPeh7L3tUB7MScVr-QpoovsnV-X4LY4_OCkfdWnxMyCdRULEtHsogBoMJpO_hD27m94NIJEHNc5drewWuxLoxXXP4hV6yn4ZP-m2IDKnCj_y7P0XLgR8gS"><div class="flex flex-col"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm text-on-surface leading-tight">Urban Traffic Intelligence</span><span class="font-label-sm text-label-sm text-on-surface-variant font-normal">/</span><span class="font-label-sm text-label-sm text-on-surface-variant">Los Angeles Metro Grid</span></div><span class="font-label-sm text-label-sm text-primary tracking-wide">Tier-1 Federated Cluster</span></div></div><div class="hidden xl:flex items-center bg-surface-container p-[2px] rounded"><button class="px-space-md py-[4px] rounded bg-surface-container-lowest text-on-surface font-label-md text-label-md shadow-xs transition-colors" type="button">METR-LA (207 Sensors)</button><button class="px-space-md py-[4px] rounded text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors" type="button">PEMS-BAY (325 Sensors)</button></div></div><div class="flex items-center gap-space-md"><div class="hidden lg:flex items-center gap-space-sm px-space-md py-[6px] rounded bg-surface-container-low"><span class="material-symbols-outlined text-primary text-[16px]">science</span><div class="flex flex-col text-left"><span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant leading-none">Selected Topology</span><span class="font-label-md text-label-md text-on-surface font-medium truncate max-w-[210px]">Exp #842: HiLo Hierarchical Top-k</span></div></div><div class="hidden 2xl:flex items-center gap-space-md px-space-md py-[6px] rounded bg-surface-container-low"><div class="flex flex-col text-right"><span class="font-label-sm text-label-sm text-on-surface-variant leading-none">Epoch 120/120</span><span class="font-label-md text-label-md text-secondary font-semibold">Convergence: 99.4%</span></div><div class="w-12 h-1.5 bg-surface-container rounded-full overflow-hidden"><div class="h-full bg-secondary rounded-full w-[99%]"></div></div></div><button class="flex items-center gap-space-xs px-space-lg py-space-sm rounded bg-primary-container text-on-primary-container hover:bg-primary font-body-md text-body-md font-semibold transition-all shadow-sm" type="button"><span class="material-symbols-outlined text-[18px]">play_arrow</span><span class="">Run Experiment</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="w-full pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<script>
+    (function syncSidebar() {
+      const links = document.querySelectorAll('aside nav a');
+      links.forEach(el => {
+        if (el.getAttribute('data-path') === 'traffic-network') {
+          el.className = 'flex items-center gap-space-md px-space-md py-space-sm rounded bg-primary-container text-on-primary-container font-semibold shadow-sm transition-all';
+        } else {
+          el.className = 'flex items-center gap-space-md px-space-md py-space-sm rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-all';
+        }
+      });
+    })();
+  </script>
+<div class="flex flex-col gap-space-md p-gutter-lg">
+<div class="flex flex-col xl:flex-row xl:items-center justify-between gap-space-md pb-space-xs">
+<div class="flex flex-col gap-[2px]">
+<div class="flex items-center gap-space-sm">
+<span class="px-space-xs py-[2px] rounded bg-primary-fixed text-on-primary-fixed-variant font-label-sm text-label-sm uppercase tracking-wider">Spatial GNN Topology</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">•</span>
+<span class="font-label-sm text-label-sm text-secondary font-medium tracking-wide flex items-center gap-1">
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-secondary"></span> Live Graph Synchronized
+          </span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Traffic Network Arterial Topology &amp; Graph Adjacency</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Los Angeles Metro Area Highway System (METR-LA: 207 Telemetry Nodes, Directed Laplacian Weights)</p>
+</div>
+<div class="flex items-center gap-space-sm self-start xl:self-auto">
+<div class="flex items-center bg-surface-container-low px-space-md py-[5px] rounded shadow-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase mr-space-xs">Dataset:</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">METR-LA (207 Sensors)</span>
+</div>
+<button class="flex items-center gap-space-xs px-space-md py-[6px] rounded bg-surface-container-lowest hover:bg-surface-container text-on-surface font-body-sm text-body-sm font-medium shadow-xs transition-colors" id="recompute-btn" type="button">
+<span class="material-symbols-outlined text-[16px] text-primary">sync</span>
+<span class="">Recompute Adjacency</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-md py-[6px] rounded bg-primary-container hover:bg-primary text-on-primary-container font-body-sm text-body-sm font-medium shadow-xs transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">filter_alt</span>
+<span class="">Filter Subgraph</span>
+</button>
+</div>
+</div>
+<div class="w-full bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col lg:flex-row lg:items-center justify-between gap-space-lg">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant mr-space-xs">Corridor:</span>
+<button class="corridor-tab px-space-sm py-[4px] rounded bg-primary-container text-on-primary-container font-label-md text-label-md font-semibold transition-all">All Corridors</button>
+<button class="corridor-tab px-space-sm py-[4px] rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-all">I-5 Golden State</button>
+<button class="corridor-tab px-space-sm py-[4px] rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-all">I-10 Santa Monica</button>
+<button class="corridor-tab px-space-sm py-[4px] rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-all">US-101 Hollywood</button>
+<button class="corridor-tab px-space-sm py-[4px] rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-all">I-405 San Diego</button>
+<button class="corridor-tab px-space-sm py-[4px] rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-all">I-110 Harbor</button>
+<button class="corridor-tab px-space-sm py-[4px] rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-all">I-710 Long Beach</button>
+</div>
+<div class="flex flex-wrap items-center gap-space-lg">
+<div class="flex items-center gap-space-sm bg-surface-container-low px-space-md py-[5px] rounded">
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant font-semibold">Top-k Sparsity:</span>
+<input class="w-20 accent-primary-container h-1 cursor-pointer" id="topk-slider" max="30" min="5" type="range" value="15">
+<span class="font-label-md text-label-md text-primary font-semibold w-8" id="topk-val">15%</span>
+</div>
+<div class="flex items-center gap-space-xs bg-surface-container-low px-space-md py-[5px] rounded">
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant font-semibold">Spatial Kernel:</span>
+<span class="font-label-md text-label-md text-on-surface font-medium">σ = 10.0 km</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">(Gaussian decay)</span>
+</div>
+<div class="flex items-center gap-space-xs px-space-sm py-[4px] rounded bg-surface-container text-on-surface">
+<span class="material-symbols-outlined text-[15px] text-tertiary">polyline</span>
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant">Mean Deg:</span>
+<span class="font-label-md text-label-md font-semibold text-tertiary">7.31</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md w-full">
+<div class="lg:col-span-7 flex flex-col gap-space-md">
+<div class="relative bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm h-[620px] flex flex-col">
+<div class="absolute top- space-md left-space-md right-space-md z-20 flex items-center justify-between pointer-events-none">
+<div class="pointer-events-auto bg-surface-container-lowest/90 backdrop-blur-md px-space-md py-space-xs rounded shadow-md flex items-center gap-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="inline-block w-2.5 h-2.5 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm text-on-surface">&gt;55 mph</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="inline-block w-2.5 h-2.5 rounded-full bg-secondary-fixed-dim"></span>
+<span class="font-label-sm text-label-sm text-on-surface">35-55 mph</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="inline-block w-2.5 h-2.5 rounded-full bg-error"></span>
+<span class="font-label-sm text-label-sm text-on-surface">&lt;35 mph</span>
+</div>
+<span class="w-[1px] h-3 bg-surface-container-highest"></span>
+<div class="flex items-center gap-space-xs">
+<span class="inline-block w-3 h-0.5 bg-primary-container"></span>
+<span class="font-label-sm text-label-sm text-on-surface">Edge w &gt; 0.6</span>
+</div>
+</div>
+<div class="pointer-events-auto bg-surface-container-lowest/90 backdrop-blur-md p-[2px] rounded shadow-md flex items-center gap-1">
+<button class="w-7 h-7 flex items-center justify-center rounded hover:bg-surface-container text-on-surface transition-colors" title="Zoom in">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+<button class="w-7 h-7 flex items-center justify-center rounded hover:bg-surface-container text-on-surface transition-colors" title="Zoom out">
+<span class="material-symbols-outlined text-[16px]">remove</span>
+</button>
+<button class="w-7 h-7 flex items-center justify-center rounded hover:bg-surface-container text-on-surface transition-colors" title="Reset camera">
+<span class="material-symbols-outlined text-[16px]">crop_free</span>
+</button>
+</div>
+</div>
+<div class="absolute bottom-space-md left-space-md z-20 pointer-events-auto bg-surface-container-lowest/95 backdrop-blur-md px-space-md py-space-sm rounded shadow-md flex items-center gap-space-md">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">Layers:</span>
+<label class="flex items-center gap-space-xs cursor-pointer">
+<input checked="" class="w-3.5 h-3.5 accent-primary-container rounded cursor-pointer" type="checkbox">
+<span class="font-label-sm text-label-sm text-on-surface">Spatial Edges</span>
+</label>
+<label class="flex items-center gap-space-xs cursor-pointer">
+<input checked="" class="w-3.5 h-3.5 accent-primary-container rounded cursor-pointer" type="checkbox">
+<span class="font-label-sm text-label-sm text-on-surface">Velocity Pins</span>
+</label>
+<label class="flex items-center gap-space-xs cursor-pointer">
+<input checked="" class="w-3.5 h-3.5 accent-primary-container rounded cursor-pointer" type="checkbox">
+<span class="font-label-sm text-label-sm text-on-surface">Louvain Hubs</span>
+</label>
+<label class="flex items-center gap-space-xs cursor-pointer">
+<input class="w-3.5 h-3.5 accent-primary-container rounded cursor-pointer" type="checkbox">
+<span class="font-label-sm text-label-sm text-on-surface">Density Heatmap</span>
+</label>
+</div>
+<div class="relative w-full h-full bg-surface-container-low overflow-hidden">
+<svg class="absolute inset-0 w-full h-full" preserveAspectRatio="xMidYMid meet" viewBox="0 0 700 620">
+<defs>
+<pattern height="30" id="grid-pattern" patternUnits="userSpaceOnUse" width="30">
+<path d="M 30 0 L 0 0 0 30" fill="none" stroke="#dae2fd" stroke-opacity="0.6" stroke-width="0.5"></path>
+</pattern>
+<filter height="140%" id="glow" width="140%" x="-20%" y="-20%">
+<feGaussianBlur result="blur" stdDeviation="1.5"></feGaussianBlur>
+<feComposite in="SourceGraphic" in2="blur" operator="over"></feComposite>
+</filter>
+</defs>
+<rect fill="url(#grid-pattern)" height="100%" width="100%"></rect>
+<path d="M 120 40 Q 240 280 430 490" fill="none" stroke="#dae2fd" stroke-linecap="round" stroke-width="9"></path>
+<path d="M 120 40 Q 240 280 430 490" fill="none" stroke="#eaedff" stroke-linecap="round" stroke-width="5"></path>
+<text fill="#737686" font-family="JetBrains Mono" font-size="9" transform="rotate(50 210 220)" x="210" y="220">I-5 GOLDEN STATE</text>
+<path d="M 60 320 C 220 330 410 335 640 360" fill="none" stroke="#dae2fd" stroke-linecap="round" stroke-width="8"></path>
+<path d="M 60 320 C 220 330 410 335 640 360" fill="none" stroke="#eaedff" stroke-linecap="round" stroke-width="4"></path>
+<text fill="#737686" font-family="JetBrains Mono" font-size="9" x="180" y="322">I-10 SANTA MONICA FWY</text>
+<path d="M 80 180 C 180 200 320 280 370 330" fill="none" stroke="#dae2fd" stroke-linecap="round" stroke-width="7"></path>
+<path d="M 80 180 C 180 200 320 280 370 330" fill="none" stroke="#eaedff" stroke-linecap="round" stroke-width="3.5"></path>
+<text fill="#737686" font-family="JetBrains Mono" font-size="8.5" transform="rotate(20 150 195)" x="150" y="195">US-101 HOLLYWOOD</text>
+<path d="M 170 120 Q 140 300 240 540" fill="none" stroke="#dae2fd" stroke-linecap="round" stroke-width="8"></path>
+<path d="M 170 120 Q 140 300 240 540" fill="none" stroke="#eaedff" stroke-linecap="round" stroke-width="4"></path>
+<text fill="#737686" font-family="JetBrains Mono" font-size="9" transform="rotate(78 145 380)" x="145" y="380">I-405 SAN DIEGO FWY</text>
+<path d="M 370 330 L 390 580" fill="none" stroke="#dae2fd" stroke-linecap="round" stroke-width="7"></path>
+<path d="M 370 330 L 390 580" fill="none" stroke="#eaedff" stroke-linecap="round" stroke-width="3"></path>
+<text fill="#737686" font-family="JetBrains Mono" font-size="8.5" transform="rotate(85 385 440)" x="385" y="440">I-110 HARBOR</text>
+<path d="M 440 370 L 490 560" fill="none" stroke="#dae2fd" stroke-linecap="round" stroke-width="6"></path>
+<path d="M 440 370 L 490 560" fill="none" stroke="#eaedff" stroke-linecap="round" stroke-width="2.5"></path>
+<ellipse cx="370" cy="330" fill="#2563eb" fill-opacity="0.05" rx="90" ry="70" stroke="#2563eb" stroke-dasharray="3 3" stroke-opacity="0.2"></ellipse>
+<text fill="#004ac6" font-family="JetBrains Mono" font-size="9" font-weight="600" x="315" y="275">CLUSTER 1: DOWNTOWN CORE</text>
+<ellipse cx="160" cy="150" fill="#006a61" fill-opacity="0.04" rx="75" ry="55" stroke="#006a61" stroke-dasharray="3 3" stroke-opacity="0.2"></ellipse>
+<text fill="#006a61" font-family="JetBrains Mono" font-size="9" font-weight="600" x="100" y="110">CLUSTER 2: SAN FERNANDO</text>
+<ellipse cx="190" cy="420" fill="#006056" fill-opacity="0.04" rx="70" ry="60" stroke="#006056" stroke-dasharray="3 3" stroke-opacity="0.2"></ellipse>
+<text fill="#006056" font-family="JetBrains Mono" font-size="9" font-weight="600" x="135" y="480">CLUSTER 3: WESTSIDE COASTAL</text>
+<ellipse cx="480" cy="460" fill="#737686" fill-opacity="0.04" rx="80" ry="65" stroke="#737686" stroke-dasharray="3 3" stroke-opacity="0.2"></ellipse>
+<text fill="#434655" font-family="JetBrains Mono" font-size="9" font-weight="600" x="430" y="525">CLUSTER 4: GATEWAY CITIES</text>
+<g id="graph-edges-weak" opacity="0.65" stroke="#c3c6d7" stroke-dasharray="2 2" stroke-width="0.8">
+<line x1="160" x2="220" y1="140" y2="190"></line>
+<line x1="190" x2="270" y1="165" y2="240"></line>
+<line x1="140" x2="200" y1="260" y2="330"></line>
+<line x1="260" x2="330" y1="330" y2="290"></line>
+<line x1="390" x2="460" y1="370" y2="380"></line>
+<line x1="420" x2="480" y1="450" y2="440"></line>
+<line x1="230" x2="360" y1="460" y2="460"></line>
+<line x1="360" x2="430" y1="350" y2="460"></line>
+</g>
+<g filter="url(#glow)" id="graph-edges-strong" stroke="#2563eb" stroke-width="1.8">
+<line x1="350" x2="375" y1="310" y2="330"></line>
+<line x1="375" x2="400" y1="330" y2="350"></line>
+<line x1="350" x2="365" y1="310" y2="280"></line>
+<line x1="375" x2="385" y1="330" y2="380"></line>
+<line x1="385" x2="390" y1="380" y2="430"></line>
+<line x1="150" x2="175" y1="130" y2="155"></line>
+<line x1="175" x2="190" y1="155" y2="175"></line>
+<line x1="190" x2="230" y1="175" y2="220"></line>
+<line x1="180" x2="195" y1="370" y2="410"></line>
+<line x1="195" x2="215" y1="410" y2="450"></line>
+<line x1="310" x2="340" y1="325" y2="328"></line>
+<line x1="460" x2="490" y1="430" y2="470"></line>
+</g>
+<g id="graph-nodes">
+<circle class="cursor-pointer hover:scale-125 transition-transform" cx="375" cy="330" fill="#ba1a1a" r="6" stroke="#ffffff" stroke-width="1.5"></circle>
+<circle cx="350" cy="310" fill="#ba1a1a" r="5" stroke="#ffffff" stroke-width="1.5"></circle>
+<circle cx="365" cy="280" fill="#6bd8cb" r="4.5" stroke="#ffffff" stroke-width="1.5"></circle>
+<circle cx="400" cy="350" fill="#ba1a1a" r="5.5" stroke="#ffffff" stroke-width="1.5"></circle>
+<circle cx="385" cy="380" fill="#6bd8cb" r="4.5" stroke="#ffffff" stroke-width="1.5"></circle>
+<circle cx="390" cy="430" fill="#006a61" r="4" stroke="#ffffff" stroke-width="1.5"></circle>
+<circle cx="150" cy="130" fill="#006a61" r="4.5" stroke="#ffffff" stroke-width="1.5"></circle>
+<circle cx="175" cy="155" fill="#006a61" r="5" stroke="#ffffff" stroke-width="1.5"></circle>
+<circle cx="190" cy="175" fill="#6bd8cb" r="4.5" stroke="#ffffff" stroke-width="1.5"></circle>
+<circle cx="230" cy="220" fill="#006a61" r="4" stroke="#ffffff" stroke-width="1.5"></circle>
+<circle cx="180" cy="370" fill="#006a61" r="4.5" stroke="#ffffff" stroke-width="1.5"></circle>
+<circle cx="195" cy="410" fill="#6bd8cb" r="5" stroke="#ffffff" stroke-width="1.5"></circle>
+<circle cx="215" cy="450" fill="#006a61" r="4.5" stroke="#ffffff" stroke-width="1.5"></circle>
+<circle cx="230" cy="490" fill="#006a61" r="4" stroke="#ffffff" stroke-width="1.5"></circle>
+<circle cx="310" cy="325" fill="#6bd8cb" r="4" stroke="#ffffff" stroke-width="1.5"></circle>
+<circle cx="270" cy="325" fill="#006a61" r="4" stroke="#ffffff" stroke-width="1.5"></circle>
+<circle cx="460" cy="430" fill="#006a61" r="4.5" stroke="#ffffff" stroke-width="1.5"></circle>
+<circle cx="490" cy="470" fill="#6bd8cb" r="4" stroke="#ffffff" stroke-width="1.5"></circle>
+<circle cx="510" cy="510" fill="#006a61" r="4" stroke="#ffffff" stroke-width="1.5"></circle>
+<circle cx="430" cy="460" fill="#006a61" r="4" stroke="#ffffff" stroke-width="1.5"></circle>
+</g>
+<g transform="translate(390, 310)">
+<rect fill="#ffffff" fill-opacity="0.95" filter="drop-shadow(0 2px 4px rgba(19,27,46,0.1))" height="52" rx="4" width="138" x="0" y="0"></rect>
+<text fill="#131b2e" font-family="Inter" font-size="9.5" font-weight="600" x="8" y="14">Sensor #773822 (I-10 / I-110)</text>
+<text fill="#ba1a1a" font-family="JetBrains Mono" font-size="8.5" x="8" y="27">Velocity: 24.8 mph (Congested)</text>
+<text fill="#434655" font-family="JetBrains Mono" font-size="8" x="8" y="38">Degree: 14 • Coeff: 0.74</text>
+<text fill="#004ac6" font-family="JetBrains Mono" font-size="7.5" x="8" y="47">GNN Weight: High Correlation</text>
+</g>
+</svg>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex items-center justify-between">
+<div class="flex items-center gap-space-md">
+<span class="p-space-xs rounded bg-surface-container text-primary flex items-center">
+<span class="material-symbols-outlined text-[18px]">satellite_alt</span>
+</span>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface">Spatial Adjacency Kernel Equation</span>
+<span class="font-label-md text-label-md text-on-surface-variant font-mono">W_ij = exp(-dist(v_i, v_j)^2 / σ^2) where dist(v_i, v_j) ≤ κ</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="px-space-sm py-[2px] rounded bg-surface-container font-label-sm text-label-sm text-on-surface-variant uppercase font-semibold">Normalized Row Stochastic</span>
+<button class="px-space-sm py-[4px] rounded bg-surface-container hover:bg-surface-container-high text-primary font-label-md text-label-md font-medium transition-colors">Export .NPY</button>
+</div>
+</div>
+</div>
+<div class="lg:col-span-5 flex flex-col gap-space-md">
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-space-xs border-b border-surface-container-high">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[18px]">grid_4x4</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Sub-network Diagnostics &amp; Adjacency</h2>
+</div>
+<span class="font-label-sm text-label-sm uppercase bg-surface-container px-space-xs py-[2px] rounded text-on-surface-variant">Block [0:10, 0:10]</span>
+</div>
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase font-semibold">10x10 Laplacian Adjacency Heatmap</span>
+<span class="font-label-sm text-label-sm text-primary font-mono">Weights [0.00 → 1.00]</span>
+</div>
+<div class="p-space-xs rounded bg-surface-container-low flex flex-col gap-[2px]">
+<div class="grid grid-cols-10 gap-[2px]">
+<div class="h-4 rounded-[1px] bg-primary text-[8px] text-white flex items-center justify-center font-mono">1.0</div>
+<div class="h-4 rounded-[1px] bg-primary-container"></div>
+<div class="h-4 rounded-[1px] bg-surface-container-high"></div>
+<div class="h-4 rounded-[1px] bg-surface-container-high"></div>
+<div class="h-4 rounded-[1px] bg-primary/80"></div>
+<div class="h-4 rounded-[1px] bg-surface-container-high"></div>
+<div class="h-4 rounded-[1px] bg-surface-container-high"></div>
+<div class="h-4 rounded-[1px] bg-primary/60"></div>
+<div class="h-4 rounded-[1px] bg-surface-container-high"></div>
+<div class="h-4 rounded-[1px] bg-surface-container-high"></div>
+</div>
+<div class="grid grid-cols-10 gap-[2px]">
+<div class="h-4 rounded-[1px] bg-primary-container"></div>
+<div class="h-4 rounded-[1px] bg-primary"></div>
+<div class="h-4 rounded-[1px] bg-primary/70"></div>
+<div class="h-4 rounded-[1px] bg-surface-container-high"></div>
+<div class="h-4 rounded-[1px] bg-surface-container-high"></div>
+<div class="h-4 rounded-[1px] bg-surface-container-high"></div>
+<div class="h-4 rounded-[1px] bg-surface-container-high"></div>
+<div class="h-4 rounded-[1px] bg-surface-container-high"></div>
+<div class="h-4 rounded-[1px] bg-surface-container-high"></div>
+<div class="h-4 rounded-[1px] bg-surface-container-high"></div>
+</div>
+<div class="grid grid-cols-10 gap-[2px]">
+<div class="h-4 rounded-[1px] bg-surface-container-high"></div>
+<div class="h-4 rounded-[1px] bg-primary/70"></div>
+<div class="h-4 rounded-[1px] bg-primary"></div>
+<div class="h-4 rounded-[1px] bg-primary-container"></div>
+<div class="h-4 rounded-[1px] bg-surface-container-high"></div>
+<div class="h-4 rounded-[1px] bg-surface-container-high"></div>
+<div class="h-4 rounded-[1px] bg-surface-container-high"></div>
+<div class="h-4 rounded-[1px] bg-surface-container-high"></div>
+<div class="h-4 rounded-[1px] bg-primary/50"></div>
+<div class="h-4 rounded-[1px] bg-surface-container-high"></div>
+</div>
+<div class="grid grid-cols-10 gap-[2px]">
+<div class="h-4 rounded-[1px] bg-surface-container-high"></div>
+<div class="h-4 rounded-[1px] bg-surface-container-high"></div>
+<div class="h-4 rounded-[1px] bg-primary-container"></div>
+<div class="h-4 rounded-[1px] bg-primary"></div>
+<div class="h-4 rounded-[1px] bg-surface-container-high"></div>
+<div class="h-4 rounded-[1px] bg-primary/60"></div>
+<div class="h-4 rounded-[1px] bg-surface-container-high"></div>
+<div class="h-4 rounded-[1px] bg-surface-container-high"></div>
+<div class="h-4 rounded-[1px] bg-surface-container-high"></div>
+<div class="h-4 rounded-[1px] bg-surface-container-high"></div>
+</div>
+<div class="grid grid-cols-10 gap-[2px]">
+<div class="h-4 rounded-[1px] bg-primary/80"></div>
+<div class="h-4 rounded-[1px] bg-surface-container-high"></div>
+<div class="h-4 rounded-[1px] bg-surface-container-high"></div>
+<div class="h-4 rounded-[1px] bg-surface-container-high"></div>
+<div class="h-4 rounded-[1px] bg-primary"></div>
+<div class="h-4 rounded-[1px] bg-primary-container"></div>
+<div class="h-4 rounded-[1px] bg-surface-container-high"></div>
+<div class="h-4 rounded-[1px] bg-surface-container-high"></div>
+<div class="h-4 rounded-[1px] bg-surface-container-high"></div>
+<div class="h-4 rounded-[1px] bg-surface-container-high"></div>
+</div>
+<div class="grid grid-cols-10 gap-[2px]">
+<div class="h-4 rounded-[1px] bg-surface-container-high"></div>
+<div class="h-4 rounded-[1px] bg-surface-container-high"></div>
+<div class="h-4 rounded-[1px] bg-surface-container-high"></div>
+<div class="h-4 rounded-[1px] bg-primary/60"></div>
+<div class="h-4 rounded-[1px] bg-primary-container"></div>
+<div class="h-4 rounded-[1px] bg-primary"></div>
+<div class="h-4 rounded-[1px] bg-primary/70"></div>
+<div class="h-4 rounded-[1px] bg-surface-container-high"></div>
+<div class="h-4 rounded-[1px] bg-surface-container-high"></div>
+<div class="h-4 rounded-[1px] bg-surface-container-high"></div>
+</div>
+<div class="grid grid-cols-10 gap-[2px]">
+<div class="h-4 rounded-[1px] bg-surface-container-high"></div>
+<div class="h-4 rounded-[1px] bg-surface-container-high"></div>
+<div class="h-4 rounded-[1px] bg-surface-container-high"></div>
+<div class="h-4 rounded-[1px] bg-surface-container-high"></div>
+<div class="h-4 rounded-[1px] bg-surface-container-high"></div>
+<div class="h-4 rounded-[1px] bg-primary/70"></div>
+<div class="h-4 rounded-[1px] bg-primary"></div>
+<div class="h-4 rounded-[1px] bg-primary-container"></div>
+<div class="h-4 rounded-[1px] bg-surface-container-high"></div>
+<div class="h-4 rounded-[1px] bg-surface-container-high"></div>
+</div>
+<div class="grid grid-cols-10 gap-[2px]">
+<div class="h-4 rounded-[1px] bg-primary/60"></div>
+<div class="h-4 rounded-[1px] bg-surface-container-high"></div>
+<div class="h-4 rounded-[1px] bg-surface-container-high"></div>
+<div class="h-4 rounded-[1px] bg-surface-container-high"></div>
+<div class="h-4 rounded-[1px] bg-surface-container-high"></div>
+<div class="h-4 rounded-[1px] bg-surface-container-high"></div>
+<div class="h-4 rounded-[1px] bg-primary-container"></div>
+<div class="h-4 rounded-[1px] bg-primary"></div>
+<div class="h-4 rounded-[1px] bg-primary/80"></div>
+<div class="h-4 rounded-[1px] bg-surface-container-high"></div>
+</div>
+<div class="grid grid-cols-10 gap-[2px]">
+<div class="h-4 rounded-[1px] bg-surface-container-high"></div>
+<div class="h-4 rounded-[1px] bg-surface-container-high"></div>
+<div class="h-4 rounded-[1px] bg-primary/50"></div>
+<div class="h-4 rounded-[1px] bg-surface-container-high"></div>
+<div class="h-4 rounded-[1px] bg-surface-container-high"></div>
+<div class="h-4 rounded-[1px] bg-surface-container-high"></div>
+<div class="h-4 rounded-[1px] bg-surface-container-high"></div>
+<div class="h-4 rounded-[1px] bg-primary/80"></div>
+<div class="h-4 rounded-[1px] bg-primary"></div>
+<div class="h-4 rounded-[1px] bg-primary-container"></div>
+</div>
+<div class="grid grid-cols-10 gap-[2px]">
+<div class="h-4 rounded-[1px] bg-surface-container-high"></div>
+<div class="h-4 rounded-[1px] bg-surface-container-high"></div>
+<div class="h-4 rounded-[1px] bg-surface-container-high"></div>
+<div class="h-4 rounded-[1px] bg-surface-container-high"></div>
+<div class="h-4 rounded-[1px] bg-surface-container-high"></div>
+<div class="h-4 rounded-[1px] bg-surface-container-high"></div>
+<div class="h-4 rounded-[1px] bg-surface-container-high"></div>
+<div class="h-4 rounded-[1px] bg-surface-container-high"></div>
+<div class="h-4 rounded-[1px] bg-primary-container"></div>
+<div class="h-4 rounded-[1px] bg-primary"></div>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">Degree Centrality Ranking (Top Nodes)</span>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm uppercase">
+<th class="py-space-xs px-space-sm font-semibold">Sensor ID</th>
+<th class="py-space-xs px-space-sm font-semibold">Deg</th>
+<th class="py-space-xs px-space-sm font-semibold">Clust. Coeff</th>
+<th class="py-space-xs px-space-sm font-semibold">Avg Spd</th>
+<th class="py-space-xs px-space-sm font-semibold">PER</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-high font-body-sm text-body-sm">
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-[6px] px-space-sm font-mono font-medium text-primary">#773822</td>
+<td class="py-[6px] px-space-sm font-mono">14</td>
+<td class="py-[6px] px-space-sm font-mono">0.742</td>
+<td class="py-[6px] px-space-sm text-error font-medium">24.8 mph</td>
+<td class="py-[6px] px-space-sm font-mono text-secondary">0.02%</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-[6px] px-space-sm font-mono font-medium text-primary">#767425</td>
+<td class="py-[6px] px-space-sm font-mono">12</td>
+<td class="py-[6px] px-space-sm font-mono">0.691</td>
+<td class="py-[6px] px-space-sm text-on-surface font-medium">48.2 mph</td>
+<td class="py-[6px] px-space-sm font-mono text-secondary">0.01%</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-[6px] px-space-sm font-mono font-medium text-primary">#717440</td>
+<td class="py-[6px] px-space-sm font-mono">11</td>
+<td class="py-[6px] px-space-sm font-mono">0.655</td>
+<td class="py-[6px] px-space-sm text-secondary font-medium">62.4 mph</td>
+<td class="py-[6px] px-space-sm font-mono text-secondary">0.00%</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-[6px] px-space-sm font-mono font-medium text-primary">#767541</td>
+<td class="py-[6px] px-space-sm font-mono">10</td>
+<td class="py-[6px] px-space-sm font-mono">0.612</td>
+<td class="py-[6px] px-space-sm text-error font-medium">31.2 mph</td>
+<td class="py-[6px] px-space-sm font-mono text-secondary">0.04%</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-space-xs border-b border-surface-container-high">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-tertiary text-[18px]">bubble_chart</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Community Detection (Louvain Modularity: 0.814)</h2>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary font-semibold uppercase">4 Partitions</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm">
+<div class="p-space-sm rounded bg-surface-container-low flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm font-semibold text-primary uppercase">Hub 1: Downtown Metro</span>
+<span class="px-space-xs py-[1px] rounded bg-primary-fixed text-on-primary-fixed-variant font-label-sm text-label-sm">Ch-01</span>
+</div>
+<div class="flex items-baseline justify-between mt-1">
+<span class="font-headline-sm text-headline-sm text-on-surface">68 Sensors</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">32.8% Total</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm pt-1">
+<span class="">Median Delay: <strong class="text-on-surface font-mono">4.2 ms</strong></span>
+<span class="text-error font-medium">Congested</span>
+</div>
+</div>
+<div class="p-space-sm rounded bg-surface-container-low flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm font-semibold text-secondary uppercase">Hub 2: San Fernando</span>
+<span class="px-space-xs py-[1px] rounded bg-secondary-fixed text-on-secondary-fixed-variant font-label-sm text-label-sm">Ch-02</span>
+</div>
+<div class="flex items-baseline justify-between mt-1">
+<span class="font-headline-sm text-headline-sm text-on-surface">52 Sensors</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">25.1% Total</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm pt-1">
+<span class="">Median Delay: <strong class="text-on-surface font-mono">3.1 ms</strong></span>
+<span class="text-secondary font-medium">Nominal</span>
+</div>
+</div>
+<div class="p-space-sm rounded bg-surface-container-low flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm font-semibold text-tertiary uppercase">Hub 3: Westside Coastal</span>
+<span class="px-space-xs py-[1px] rounded bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-sm text-label-sm">Ch-03</span>
+</div>
+<div class="flex items-baseline justify-between mt-1">
+<span class="font-headline-sm text-headline-sm text-on-surface">47 Sensors</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">22.7% Total</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm pt-1">
+<span class="">Median Delay: <strong class="text-on-surface font-mono">3.8 ms</strong></span>
+<span class="text-secondary font-medium">Nominal</span>
+</div>
+</div>
+<div class="p-space-sm rounded bg-surface-container-low flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm font-semibold text-on-surface-variant uppercase">Hub 4: Gateway Cities</span>
+<span class="px-space-xs py-[1px] rounded bg-surface-container text-on-surface font-label-sm text-label-sm">Ch-04</span>
+</div>
+<div class="flex items-baseline justify-between mt-1">
+<span class="font-headline-sm text-headline-sm text-on-surface">40 Sensors</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">19.3% Total</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm pt-1">
+<span class="">Median Delay: <strong class="text-on-surface font-mono">3.4 ms</strong></span>
+<span class="text-secondary font-medium">Nominal</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="w-full bg-surface-container-lowest rounded-xl p-space-md shadow-sm">
+<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-space-md divide-y sm:divide-y-0 sm:divide-x divide-surface-container-high">
+<div class="flex flex-col gap-space-xs pt-space-xs sm:pt-0 sm:px-space-sm first:pl-0">
+<div class="flex items-center gap-space-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[15px]">timeline</span>
+<span class="font-label-sm text-label-sm uppercase font-semibold">Total Edges</span>
+</div>
+<span class="font-headline-md text-headline-md text-on-surface font-bold">1,514</span>
+<span class="font-label-sm text-label-sm text-secondary font-medium">↑ 42 restored via Top-k</span>
+</div>
+<div class="flex flex-col gap-space-xs pt-space-xs sm:pt-0 sm:px-space-sm">
+<div class="flex items-center gap-space-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[15px]">scatter_plot</span>
+<span class="font-label-sm text-label-sm uppercase font-semibold">Sparsity Ratio</span>
+</div>
+<span class="font-headline-md text-headline-md text-on-surface font-bold">82.4%</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">Density ρ = 0.176</span>
+</div>
+<div class="flex flex-col gap-space-xs pt-space-xs sm:pt-0 sm:px-space-sm">
+<div class="flex items-center gap-space-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[15px]">straighten</span>
+<span class="font-label-sm text-label-sm uppercase font-semibold">Graph Diameter</span>
+</div>
+<span class="font-headline-md text-headline-md text-on-surface font-bold">6 Hops</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">Max eccentricity</span>
+</div>
+<div class="flex flex-col gap-space-xs pt-space-xs sm:pt-0 sm:px-space-sm">
+<div class="flex items-center gap-space-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[15px]">route</span>
+<span class="font-label-sm text-label-sm uppercase font-semibold">Avg Path Length</span>
+</div>
+<span class="font-headline-md text-headline-md text-on-surface font-bold">2.84 hops</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">Characteristic L_G</span>
+</div>
+<div class="flex flex-col gap-space-xs pt-space-xs sm:pt-0 sm:px-space-sm col-span-2 sm:col-span-1">
+<div class="flex items-center gap-space-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[15px]">functions</span>
+<span class="font-label-sm text-label-sm uppercase font-semibold">Laplacian Cond. Num.</span>
+</div>
+<span class="font-headline-md text-headline-md text-on-surface font-bold">34.82</span>
+<span class="font-label-sm text-label-sm text-secondary font-medium">Optimal convergence bound</span>
+</div>
+</div>
+</div>
+</div>
+<script>
+    document.querySelectorAll('.corridor-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.corridor-tab').forEach(t => {
+          t.className = 'corridor-tab px-space-sm py-[4px] rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-all';
+        });
+        tab.className = 'corridor-tab px-space-sm py-[4px] rounded bg-primary-container text-on-primary-container font-label-md text-label-md font-semibold transition-all';
+      });
+    });
+
+    const slider = document.getElementById('topk-slider');
+    const valLabel = document.getElementById('topk-val');
+    if (slider && valLabel) {
+      slider.addEventListener('input', (e) => {
+        valLabel.textContent = e.target.value + '%';
+      });
+    }
+
+    const recomputeBtn = document.getElementById('recompute-btn');
+    if (recomputeBtn) {
+      recomputeBtn.addEventListener('click', function() {
+        const icon = this.querySelector('.material-symbols-outlined');
+        icon.classList.add('animate-spin');
+        setTimeout(() => {
+          icon.classList.remove('animate-spin');
+        }, 800);
+      });
+    }
+  </script>
+</div></main></div>
+
+
+</body></html>
