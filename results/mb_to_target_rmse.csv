@@ -1,0 +1,9 @@
+method,target_rmse_mph,target_basis,reached,first_round,weighted_mb_to_target,validation_rmse_at_first_hit
+FedAvg,19.337656594247967,1.05 x FedAvg validation 60-minute RMSE,True,1,0.07296,18.416815804045683
+FedAvg + INT8,19.337656594247967,1.05 x FedAvg validation 60-minute RMSE,True,1,0.04608,18.4267283623715
+FedAvg + top-k,19.337656594247967,1.05 x FedAvg validation 60-minute RMSE,True,1,0.04416,18.66692580346356
+HiLo-Fed,19.337656594247967,1.05 x FedAvg validation 60-minute RMSE,True,1,0.0056,19.10736522374299
+HiLo-Fed (fixed threshold),19.337656594247967,1.05 x FedAvg validation 60-minute RMSE,True,1,0.00512,19.10736522374299
+HiLo-Fed (flat ablation),19.337656594247967,1.05 x FedAvg validation 60-minute RMSE,True,1,0.006,19.147737658866557
+HiLo-Fed (no LoRA),19.337656594247967,1.05 x FedAvg validation 60-minute RMSE,True,1,0.04158,19.111859276601002
+HiLo-Fed (no trigger),19.337656594247967,1.05 x FedAvg validation 60-minute RMSE,True,1,0.0096,19.10736522374299

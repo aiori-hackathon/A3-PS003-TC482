@@ -14,6 +14,11 @@ FEATURE_DIM = LOOKBACK * 2  # own-sensor history + graph-neighbour history
 HORIZON = 12
 RANK = 1
 HEADER_BYTES = 16
+CLIENT_COUNT = 6
+EDGE_COUNT = 3
+TAU = 0.006
+W_EDGE = 1.0
+W_CLOUD = 1.0
 
 
 def _base_matrix(lookback=FEATURE_DIM, horizon=HORIZON):
@@ -210,11 +215,11 @@ def _payload_bytes_for_state(state):
     return int(_flatten_state(state).nbytes + HEADER_BYTES)
 
 
-def _run_flat(name, mode, codec, data, val, rounds, seed, batch_size, local_epochs, partition="sensor"):
+def _run_flat(name, mode, codec, data, val, rounds, seed, batch_size, local_epochs, partition="sensor", n_clients=None, rank=None):
     Xtr, Ytr, Mtr, Str = data
     Xv, Yv, Mv, Sv = val
-    client_masks = _client_data(Xtr, Ytr, Mtr, Str, n_clients=6, partition=partition, seed=seed)
-    global_state = _init_state(mode, seed)
+    client_masks = _client_data(Xtr, Ytr, Mtr, Str, n_clients=int(n_clients or CLIENT_COUNT), partition=partition, seed=seed)
+    global_state = _init_state(mode, seed, rank=int(rank or RANK))
     client_up = client_down = 0
     round_logs, client_logs = [], []
     val_history = []
@@ -239,13 +244,14 @@ def _run_flat(name, mode, codec, data, val, rounds, seed, batch_size, local_epoc
         avg_delta = _flatten_state(weighted_state_average(deltas, weights))
         global_state = _state_add(global_state, _unflatten_like(avg_delta, global_state))
         _, vals = _evaluate(Xv, Yv, Mv, Sv, global_state, mode, _BUNDLE_CURRENT)
+        val_rmse = vals[-1][1]
         val_mae = vals[-1][2]
         val_history.append(val_mae)
         round_logs.append({"method": name, "round": r, "client_upload_bytes": int(sum(x["payload_bytes"] for x in client_logs if x["method"]==name and x["round"]==r)),
                            "client_downlink_bytes": len(client_masks)*(n_params*4+HEADER_BYTES), "edge_upload_bytes": 0,
                            "edge_downlink_bytes": 0, "total_bytes": int(sum(x["payload_bytes"] for x in client_logs if x["method"]==name and x["round"]==r) + len(client_masks)*(n_params*4+HEADER_BYTES)),
-                           "client_uploads": len(client_masks), "forced_uploads": 0, "mean_drift": float(np.mean([x["drift"] for x in client_logs if x["method"]==name and x["round"]==r])),
-                           "mean_threshold": 0.0, "cloud_aggregated": True, "validation_mae_60m_mph": val_mae})
+                           "client_uploads": len(client_masks), "drift_triggered_uploads": 0, "forced_uploads": 0, "mean_drift": float(np.mean([x["drift"] for x in client_logs if x["method"]==name and x["round"]==r])),
+                           "mean_threshold": 0.0, "cloud_aggregated": True, "validation_mae_60m_mph": val_mae, "validation_rmse_60m_mph": val_rmse})
     return global_state, round_logs, client_logs, {"client_upload_bytes": client_up, "client_downlink_bytes": client_down,
         "edge_upload_bytes": 0, "edge_downlink_bytes": 0, "total_bytes": client_up+client_down,
         "counterfactual_full_upload_bytes": rounds*len(client_masks)*(n_params*4+HEADER_BYTES), "rounds": rounds}
@@ -263,13 +269,14 @@ def weighted_state_average(states, weights):
 _BUNDLE_CURRENT = None
 
 
-def _run_hierarchical(name, mode, codec, trigger, data, val, rounds, seed, batch_size, local_epochs, partition="sensor", n_edges=3, cloud_every=2):
+def _run_hierarchical(name, mode, codec, trigger, data, val, rounds, seed, batch_size, local_epochs, partition="sensor", n_edges=None, cloud_every=2, n_clients=None, rank=None, tau=None):
     Xtr, Ytr, Mtr, Str = data
     Xv, Yv, Mv, Sv = val
-    client_masks = _client_data(Xtr, Ytr, Mtr, Str, n_clients=6, partition=partition, seed=seed)
+    n_edges = int(n_edges or EDGE_COUNT)
+    client_masks = _client_data(Xtr, Ytr, Mtr, Str, n_clients=int(n_clients or CLIENT_COUNT), partition=partition, seed=seed)
     client_ids = list(client_masks)
     edge_for_client = {cid: cid % n_edges for cid in client_ids}
-    cloud = _init_state(mode, seed)
+    cloud = _init_state(mode, seed, rank=int(rank or RANK))
     edge_states = {e: {k:v.copy() for k,v in cloud.items()} for e in range(n_edges)}
     silent = {cid: 0 for cid in client_ids}
     volatility_segments = {cid: [_volatility(seg) for seg in np.array_split(Xtr[client_masks[cid]], rounds)] for cid in client_ids}
@@ -278,7 +285,7 @@ def _run_hierarchical(name, mode, codec, trigger, data, val, rounds, seed, batch
     n_params = len(_flatten_state(cloud))
     val_history=[]
     for r in range(1, rounds+1):
-        round_client_up = round_edge_up = round_forced = round_uploads = 0
+        round_client_up = round_edge_up = round_forced = round_drift_uploads = round_uploads = 0
         drifts, thresholds = [], []
         for e in range(n_edges):
             member_ids = [cid for cid in client_ids if edge_for_client[cid] == e]
@@ -291,9 +298,17 @@ def _run_hierarchical(name, mode, codec, trigger, data, val, rounds, seed, batch
                 delta = _flatten_state(_state_delta(local, edge_state))
                 drift = _relative_drift(delta, _flatten_state(edge_state))
                 volatility_now = volatility_segments[cid][r-1]
-                threshold = 0.0 if trigger == "none" else (0.25 if trigger == "fixed" else adaptive_threshold(volatility_now, base=0.25))
-                forced = silent[cid] >= 2
-                upload = True if trigger == "none" else should_upload(drift, threshold, silent[cid], staleness_cap=2)
+                tau_value = float(tau if tau is not None else TAU)
+                # tau is the interpretable base relative-update threshold. The adaptive
+                # policy lowers it as traffic volatility rises; fixed uses tau unchanged.
+                threshold = 0.0 if trigger == "none" else (tau_value if trigger == "fixed" else adaptive_threshold(volatility_now, base=tau_value))
+                drift_condition = bool(trigger != "none" and drift >= threshold)
+                forced_condition = bool(trigger != "none" and silent[cid] >= 2 and not drift_condition)
+                upload = bool(trigger == "none" or drift_condition or forced_condition)
+                # Trigger categories are mutually exclusive: a staleness upload is
+                # counted as forced only when the drift criterion did not fire.
+                forced = bool(upload and forced_condition)
+                drift_triggered = bool(upload and trigger in {"adaptive", "fixed"} and drift_condition)
                 drifts.append(drift); thresholds.append(threshold)
                 if upload:
                     decoded, nbytes, sent = _encode_update(delta, codec)
@@ -301,12 +316,13 @@ def _run_hierarchical(name, mode, codec, trigger, data, val, rounds, seed, batch
                     weights.append(max(1, int(Mtr[cmask].sum())))
                     client_up += nbytes; round_client_up += nbytes; round_uploads += 1
                     if forced: round_forced += 1
+                    if drift_triggered: round_drift_uploads += 1
                     silent[cid] = 0
                 else:
                     nbytes, sent = 0, 0
                     silent[cid] += 1
                 client_logs.append({"method": name, "round": r, "client_id": cid, "edge_id": e,
-                                    "uploaded": bool(upload), "forced_upload": bool(upload and forced),
+                                    "uploaded": bool(upload), "forced_upload": forced, "drift_triggered_upload": drift_triggered,
                                     "drift": drift, "threshold": threshold, "volatility": volatility_now,
                                     "payload_bytes": nbytes, "values_sent": sent,
                                     "valid_target_count": int(Mtr[cmask].sum())})
@@ -332,16 +348,17 @@ def _run_hierarchical(name, mode, codec, trigger, data, val, rounds, seed, batch
             for e in range(n_edges):
                 edge_states[e] = {k:v.copy() for k,v in cloud.items()}
         _, vals = _evaluate(Xv, Yv, Mv, Sv, cloud, mode, _BUNDLE_CURRENT)
+        val_rmse = vals[-1][1]
         val_mae = vals[-1][2]
         val_history.append(val_mae)
         total = round_client_up + down_this + round_edge_up + (n_edges*(n_params*4+HEADER_BYTES) if edge_sync else 0)
         round_logs.append({"method": name, "round": r, "client_upload_bytes": round_client_up,
                            "client_downlink_bytes": down_this, "edge_upload_bytes": round_edge_up,
                            "edge_downlink_bytes": n_edges*(n_params*4+HEADER_BYTES) if edge_sync else 0,
-                           "total_bytes": total, "client_uploads": round_uploads, "forced_uploads": round_forced,
+                           "total_bytes": total, "client_uploads": round_uploads, "drift_triggered_uploads": round_drift_uploads, "forced_uploads": round_forced,
                            "mean_drift": float(np.mean(drifts)) if drifts else 0.0,
                            "mean_threshold": float(np.mean(thresholds)) if thresholds else 0.0,
-                           "cloud_aggregated": edge_sync, "validation_mae_60m_mph": val_mae})
+                           "cloud_aggregated": edge_sync, "validation_mae_60m_mph": val_mae, "validation_rmse_60m_mph": val_rmse})
     total_up = sum(x["client_upload_bytes"] for x in round_logs)
     total_down = sum(x["client_downlink_bytes"] for x in round_logs)
     total_edge_up = sum(x["edge_upload_bytes"] for x in round_logs)
@@ -381,18 +398,33 @@ def _write_plots(metrics, costs, plot_dir):
         ax.set(title=title,xlabel="Forecast horizon (minutes)",ylabel="Speed error (mph)"); ax.grid(True,alpha=.3); ax.legend(fontsize=7)
         fig.tight_layout(); fig.savefig(plot_dir/fname,dpi=140); plt.close(fig)
     finite=costs[np.isfinite(pd.to_numeric(costs.total_bytes,errors="coerce"))].sort_values("total_bytes")
-    fig,ax=plt.subplots(figsize=(10,5)); ax.bar(finite.method,finite.total_bytes); ax.set(title="Measured communication payload bytes",ylabel="Bytes (uplink + downlink)"); ax.tick_params(axis="x",rotation=60); ax.grid(axis="y",alpha=.3)
+    fig,ax=plt.subplots(figsize=(10,5)); ax.bar(finite.method,finite.total_bytes); ax.set(title="Measured communication payload bytes",ylabel="Bytes (uplink + downlink)"); ax.set_ylim(bottom=0); ax.tick_params(axis="x",rotation=60); ax.grid(axis="y",alpha=.3)
     fig.tight_layout(); fig.savefig(plot_dir/"communication_bytes.png",dpi=140); plt.close(fig)
     merged=metrics[metrics.horizon_minutes==60].merge(finite[["method","total_bytes"]],on="method",how="inner")
     fig,ax=plt.subplots(figsize=(9,5)); ax.scatter(merged.total_bytes,merged.rmse_mph)
     for _,r in merged.iterrows(): ax.annotate(r.method,(r.total_bytes,r.rmse_mph),fontsize=7)
     ax.set(title="Communication–accuracy trade-off (60-minute RMSE)",xlabel="Measured communication bytes",ylabel="RMSE (mph)"); ax.grid(True,alpha=.3)
     fig.tight_layout(); fig.savefig(plot_dir/"communication_accuracy_tradeoff.png",dpi=140); plt.close(fig)
+    # Pareto plot uses weighted communication MB and 60-minute RMSE from measured output tables.
+    if "weighted_cost_mb" in costs.columns:
+        pm = metrics[metrics.horizon_minutes.eq(60)][["method","rmse_mph"]].merge(costs[["method","weighted_cost_mb"]],on="method",how="inner").dropna()
+        fig,ax=plt.subplots(figsize=(9,5)); ax.scatter(pm.weighted_cost_mb,pm.rmse_mph)
+        for _,r in pm.iterrows(): ax.annotate(r.method,(r.weighted_cost_mb,r.rmse_mph),fontsize=7)
+        ax.set(title="Pareto view: 60-minute RMSE vs weighted communication",xlabel="Weighted communication (MB)",ylabel="RMSE (mph)"); ax.grid(True,alpha=.3)
+        fig.tight_layout(); fig.savefig(plot_dir/"pareto_rmse_weighted_mb.png",dpi=140); plt.close(fig)
+        target = costs.loc[costs.method.eq("FedAvg"),"rmse_mph"]
+        if not target.empty and pd.notna(target.iloc[0]):
+            threshold=float(target.iloc[0])*1.05
+            fig,ax=plt.subplots(figsize=(10,5)); ax.bar(pm.method,pm.weighted_cost_mb); ax.axhline(0,linewidth=.5)
+            for i,(_,r) in enumerate(pm.iterrows()): ax.text(i,r.weighted_cost_mb,f"RMSE {r.rmse_mph:.2f}",rotation=90,va="bottom",fontsize=7)
+            ax.set(title=f"Weighted MB by method (target RMSE ≤ {threshold:.3f} mph)",ylabel="Weighted MB",xlabel="Method"); ax.set_ylim(bottom=0); ax.tick_params(axis="x",rotation=60); ax.grid(axis="y",alpha=.3)
+            fig.tight_layout(); fig.savefig(plot_dir/"mb_to_target_rmse.png",dpi=140); plt.close(fig)
 
 
-def run_pipeline(dataset="metr_la", fast=True, max_rows=1200, rounds=3, seed=17, data_dir=None, output_dir=None,
-                 batch_size=512, local_epochs=1, partition="sensor", window_stride=None):
-    global _BUNDLE_CURRENT
+def run_pipeline(dataset="metr_la", fast=True, max_rows=1200, rounds=30, seed=17, data_dir=None, output_dir=None,
+                 batch_size=512, local_epochs=1, partition="sensor", window_stride=None, n_clients=30, n_edges=4, tau=0.006, rank=1, k=2, w_edge=1.0, w_cloud=1.0):
+    global _BUNDLE_CURRENT, CLIENT_COUNT, EDGE_COUNT, TAU, RANK, W_EDGE, W_CLOUD
+    CLIENT_COUNT, EDGE_COUNT, TAU, RANK, W_EDGE, W_CLOUD = int(n_clients), int(n_edges), float(tau), int(rank), float(w_edge), float(w_cloud)
     t0=time.perf_counter()
     root=ROOT
     data_dir=Path(data_dir) if data_dir else root/"data"
@@ -407,45 +439,96 @@ def run_pipeline(dataset="metr_la", fast=True, max_rows=1200, rounds=3, seed=17,
     Xte,Yte,Mte,Ste,_=make_windows(bundle,bundle.test,LOOKBACK,HORIZON,window_stride)
     data=(Xtr,Ytr,Mtr,Str); val=(Xv,Yv,Mv,Sv)
     metrics_rows=[]; cost_rows=[]; round_rows=[]; client_rows=[]
+    suffix="" if dataset=="metr_la" else f"_{dataset}"
     methods=[
         ("HiLo-Fed","lora","topk_int8","adaptive","hierarchical"),
         ("HiLo-Fed (no LoRA)","full","topk_int8","adaptive","hierarchical"),
         ("HiLo-Fed (fixed threshold)","lora","topk_int8","fixed","hierarchical"),
         ("HiLo-Fed (no trigger)","lora","float32","none","hierarchical"),
+        ("HiLo-Fed (flat ablation)","lora","topk_int8","adaptive","flat"),
         ("FedAvg","full","float32","none","flat"),
         ("FedAvg + INT8","full","int8","none","flat"),
         ("FedAvg + top-k","full","topk","none","flat"),
     ]
     states={}
     for mi,(name,mode,codec,trigger,topology) in enumerate(methods):
-        method_seed=seed+mi*101
+        # Pair trigger-policy comparisons with the same initialization and local-SGD seeds.
+        method_seed = seed if name in {"HiLo-Fed", "HiLo-Fed (fixed threshold)", "HiLo-Fed (no trigger)"} else seed + mi * 101
         if topology=="flat":
-            state,rlogs,clogs,cost=_run_flat(name,mode,codec,data,val,rounds,method_seed,batch_size,local_epochs,partition)
+            state,rlogs,clogs,cost=_run_flat(name,mode,codec,data,val,rounds,method_seed,batch_size,local_epochs,partition,n_clients=n_clients,rank=rank)
         else:
-            state,rlogs,clogs,cost=_run_hierarchical(name,mode,codec,trigger,data,val,rounds,method_seed,batch_size,local_epochs,partition)
+            state,rlogs,clogs,cost=_run_hierarchical(name,mode,codec,trigger,data,val,rounds,method_seed,batch_size,local_epochs,partition,n_edges=n_edges,cloud_every=k,n_clients=n_clients,rank=rank,tau=tau)
         states[name]=(state,mode)
         metrics_rows.extend(_metric_rows(name,dataset,Xte,Yte,Mte,Ste,state,mode,bundle))
         round_rows.extend(rlogs); client_rows.extend(clogs)
         nparams=len(_flatten_state(_init_state(mode,method_seed)))
         counterfactual=max(1,int(cost["counterfactual_full_upload_bytes"]))
         cost_rows.append({"dataset":dataset,"method":name,**cost,"trainable_parameters":nparams,
-                          "upload_reduction_pct":100*(1-cost["client_upload_bytes"]/counterfactual),
+                          "upload_reduction_pct":np.nan, "total_reduction_pct":np.nan, "weighted_cost_bytes": W_EDGE*(cost["client_upload_bytes"]+cost["client_downlink_bytes"]) + W_CLOUD*(cost["edge_upload_bytes"]+cost["edge_downlink_bytes"]), "weighted_cost_mb": (W_EDGE*(cost["client_upload_bytes"]+cost["client_downlink_bytes"]) + W_CLOUD*(cost["edge_upload_bytes"]+cost["edge_downlink_bytes"]))/1e6,
                           "communication_scope":"client and edge/cloud model payloads; 16-byte per-message header included"})
     central=_run_centralized("full",data,val,rounds,seed+80000,batch_size,local_epochs)
     metrics_rows.extend(_metric_rows("Centralized",dataset,Xte,Yte,Mte,Ste,central,"full",bundle))
     cost_rows.append({"dataset":dataset,"method":"Centralized","client_upload_bytes":np.nan,"client_downlink_bytes":np.nan,
                       "edge_upload_bytes":np.nan,"edge_downlink_bytes":np.nan,"total_bytes":np.nan,
                       "counterfactual_full_upload_bytes":np.nan,"rounds":rounds,"trainable_parameters":len(_flatten_state(central)),
-                      "upload_reduction_pct":np.nan,"communication_scope":"Not comparable: centralized pooled-data baseline; data-transfer cost excluded"})
+                      "upload_reduction_pct":np.nan,"total_reduction_pct":np.nan,"weighted_cost_bytes":np.nan,"weighted_cost_mb":np.nan,"communication_scope":"Not comparable: centralized pooled-data baseline; data-transfer cost excluded"})
     metrics_rows.extend(_baseline_rows(dataset,bundle,Xte,Yte,Mte,Ste))
     for name in ["Last-value","Historical-average"]:
         cost_rows.append({"dataset":dataset,"method":name,"client_upload_bytes":np.nan,"client_downlink_bytes":np.nan,
                           "edge_upload_bytes":np.nan,"edge_downlink_bytes":np.nan,"total_bytes":np.nan,
                           "counterfactual_full_upload_bytes":np.nan,"rounds":0,"trainable_parameters":0,
-                          "upload_reduction_pct":np.nan,"communication_scope":"Non-trained reference baseline; communication not applicable"})
-    metrics=pd.DataFrame(metrics_rows); costs=pd.DataFrame(cost_rows); round_df=pd.DataFrame(round_rows); client_df=pd.DataFrame(client_rows)
+                          "upload_reduction_pct":np.nan,"total_reduction_pct":np.nan,"weighted_cost_bytes":np.nan,"weighted_cost_mb":np.nan,"communication_scope":"Non-trained reference baseline; communication not applicable"})
+    costs=pd.DataFrame(cost_rows)
+    fedavg = costs.loc[costs.method.eq("FedAvg")]
+    if not fedavg.empty:
+        fedavg_row = fedavg.iloc[0]
+        valid_upload = pd.to_numeric(costs.client_upload_bytes, errors="coerce")
+        valid_total = pd.to_numeric(costs.total_bytes, errors="coerce")
+        costs["upload_reduction_pct"] = np.where(valid_upload.notna() & (float(fedavg_row.client_upload_bytes) > 0), 100*(1-valid_upload/float(fedavg_row.client_upload_bytes)), np.nan)
+        costs["total_reduction_pct"] = np.where(valid_total.notna() & (float(fedavg_row.total_bytes) > 0), 100*(1-valid_total/float(fedavg_row.total_bytes)), np.nan)
+    metrics=pd.DataFrame(metrics_rows); round_df=pd.DataFrame(round_rows); client_df=pd.DataFrame(client_rows)
+    # Associate each training round with the midpoint timestamp of its chronological
+    # training-data segment. This enables a time-of-day upload summary without claiming
+    # packet-level timestamps that the simulator does not generate.
+    train_timestamps = pd.to_datetime(bundle.timestamps[bundle.train], errors="coerce", utc=True)
+    if len(train_timestamps) and train_timestamps.notna().any():
+        timestamp_chunks = np.array_split(np.arange(len(train_timestamps)), max(1, int(rounds)))
+        round_hour = {}
+        round_timestamp = {}
+        for ri, idxs in enumerate(timestamp_chunks, start=1):
+            if len(idxs):
+                ts = train_timestamps.iloc[int(idxs[len(idxs)//2])] if hasattr(train_timestamps, "iloc") else train_timestamps[int(idxs[len(idxs)//2])]
+                if pd.notna(ts):
+                    round_hour[ri] = int(ts.hour)
+                    round_timestamp[ri] = ts.isoformat()
+        for frame in (round_df, client_df):
+            if not frame.empty and "round" in frame:
+                frame["hour_of_day_utc"] = frame["round"].map(round_hour)
+                frame["round_segment_timestamp_utc"] = frame["round"].map(round_timestamp)
+    rmse60 = metrics[metrics.horizon_minutes.eq(60)][["method","rmse_mph"]]
+    costs = costs.merge(rmse60, on="method", how="left")
+    costs["accuracy_per_mb"] = 1.0 / (costs["rmse_mph"] * costs["weighted_cost_mb"].replace(0, np.nan))
+    fedavg_rmse = metrics.loc[(metrics.method == "FedAvg") & (metrics.horizon_minutes == 60), "rmse_mph"]
+    target = float(fedavg_rmse.iloc[0]) * 1.05 if not fedavg_rmse.empty else np.nan
+    costs["target_rmse_mph"] = target
+    costs["target_rmse_reached"] = costs["rmse_mph"] <= target if np.isfinite(target) else False
+    # First-round-to-target uses a validation baseline and validation RMSE for every
+    # method (same split); the test-set target remains separately reported in costs.
+    if not round_df.empty and "validation_rmse_60m_mph" in round_df.columns:
+        fedavg_validation = round_df.loc[round_df.method.eq("FedAvg"), "validation_rmse_60m_mph"]
+        validation_target = float(fedavg_validation.iloc[0]) * 1.05 if not fedavg_validation.empty else np.nan
+        reach_rows=[]
+        for method, grp in round_df.groupby("method"):
+            grp=grp.sort_values("round").copy()
+            grp["cumulative_weighted_mb"] = (grp["client_upload_bytes"].cumsum()*W_EDGE + (grp["edge_upload_bytes"]+grp["edge_downlink_bytes"]).cumsum()*W_CLOUD + grp["client_downlink_bytes"].cumsum()*W_EDGE)/1e6
+            hit=grp[grp["validation_rmse_60m_mph"] <= validation_target] if np.isfinite(validation_target) else grp.iloc[0:0]
+            reach_rows.append({"method":method,"target_rmse_mph":validation_target,"target_basis":"1.05 x FedAvg validation 60-minute RMSE",
+                               "reached":not hit.empty,
+                               "first_round":int(hit.iloc[0]["round"]) if not hit.empty else np.nan,
+                               "weighted_mb_to_target":float(hit.iloc[0]["cumulative_weighted_mb"]) if not hit.empty else np.nan,
+                               "validation_rmse_at_first_hit":float(hit.iloc[0]["validation_rmse_60m_mph"]) if not hit.empty else np.nan})
+        pd.DataFrame(reach_rows).to_csv(results_dir/f"mb_to_target_rmse{suffix}.csv",index=False)
     # Save each dataset's own outputs; the shared project may later combine METR-LA and PEMS-BAY runs.
-    suffix="" if dataset=="metr_la" else f"_{dataset}"
     metrics.to_csv(results_dir/f"forecast_metrics{suffix}.csv",index=False)
     costs.to_csv(results_dir/f"communication_costs{suffix}.csv",index=False)
     round_df.to_csv(results_dir/f"round_logs{suffix}.csv",index=False)
@@ -456,7 +539,22 @@ def run_pipeline(dataset="metr_la", fast=True, max_rows=1200, rounds=3, seed=17,
            "distance_graph_sensor_coverage":len(distance_ids),"distance_graph_compatible":bool(len(bundle.distances)>0),
            "note":"Distance edges are filtered to sensor IDs present in the selected traffic dataset; unmatched edges are excluded rather than remapped by guess."}
     pd.DataFrame([audit]).to_csv(results_dir/f"dataset_audit{suffix}.csv",index=False)
-    _write_plots(metrics,costs,results_dir/"plots" if dataset=="metr_la" else results_dir/f"plots_{dataset}")
+    plot_dir=results_dir/"plots" if dataset=="metr_la" else results_dir/f"plots_{dataset}"
+    _write_plots(metrics,costs,plot_dir)
+    # Upload heatmap by time of day, based on each round's associated chronological
+    # training-segment midpoint timestamp (UTC); it is not a packet-level event timestamp.
+    if not client_df.empty and {"round","client_id","uploaded"}.issubset(client_df.columns):
+        if "hour_of_day_utc" in client_df and client_df.hour_of_day_utc.notna().any():
+            heat=client_df.pivot_table(index="client_id",columns="hour_of_day_utc",values="uploaded",aggfunc="mean",fill_value=0)
+            fig,ax=plt.subplots(figsize=(12,6)); ax.imshow(heat.to_numpy(),aspect="auto",interpolation="nearest",origin="lower",vmin=0,vmax=1)
+            ax.set(title="Upload heatmap by time of day (UTC; round-segment timestamp)",xlabel="Hour of day (UTC)",ylabel="Client ID")
+            ax.set_xticks(range(len(heat.columns))); ax.set_xticklabels([f"{int(h):02d}:00" for h in heat.columns],fontsize=8)
+            fig.tight_layout(); fig.savefig(plot_dir/"upload_heatmap_by_time_of_day.png",dpi=140); plt.close(fig)
+        heat=client_df.pivot_table(index="client_id",columns="round",values="uploaded",aggfunc="mean",fill_value=0)
+        fig,ax=plt.subplots(figsize=(12,6)); ax.imshow(heat.to_numpy(),aspect="auto",interpolation="nearest",origin="lower",vmin=0,vmax=1)
+        ax.set(title="Client upload heatmap by training round",xlabel="Training round",ylabel="Client ID")
+        ax.set_xticks(range(len(heat.columns))); ax.set_xticklabels(list(heat.columns),fontsize=7)
+        fig.tight_layout(); fig.savefig(plot_dir/"upload_heatmap_by_round.png",dpi=140); plt.close(fig)
     # Convergence summary uses measured validation MAE for each trained method.
     convergence=[]
     for method,g in round_df.groupby("method"):
@@ -473,7 +571,7 @@ def run_pipeline(dataset="metr_la", fast=True, max_rows=1200, rounds=3, seed=17,
               "fast_mode":fast,"max_rows_requested":max_rows if fast else None,"rows_used":len(bundle.raw),"sensor_count":len(bundle.sensor_ids),
               "train_rows":bundle.train.stop-bundle.train.start,"validation_rows":bundle.val.stop-bundle.val.start,"test_rows":bundle.test.stop-bundle.test.start,
               "training_samples":len(Xtr),"validation_samples":len(Xv),"test_samples":len(Xte),"window_stride":window_stride,"rounds":rounds,"local_epochs":local_epochs,
-              "client_count":6,"edge_count":3,"cloud_aggregation_every_rounds":2,"lookback_steps":LOOKBACK,"input_features_per_sensor":FEATURE_DIM,"graph_neighbour_features_used":True,"forecast_horizon_steps":HORIZON,
+              "client_count":int(n_clients),"edge_count":int(n_edges),"cloud_aggregation_every_rounds":int(k), "tau":float(tau), "lora_rank":int(rank), "w_edge":float(w_edge), "w_cloud":float(w_cloud),"lookback_steps":LOOKBACK,"input_features_per_sensor":FEATURE_DIM,"graph_neighbour_features_used":True,"forecast_horizon_steps":HORIZON,
               "full_model_trainable_parameters":full_params,"lora_adapter_trainable_parameters":adapter_params,"lora_trainable_parameter_ratio":adapter_ratio,
               "target_minutes":[15,30,60],"runtime_seconds":time.perf_counter()-t0,"python":sys.version,"platform":platform.platform(),
               "source_dataset_files": [str(bundle.name),"provided METR-LA.csv / PEMS-BAY.csv; no synthetic traffic substituted"],
@@ -493,7 +591,14 @@ def main():
     p.add_argument("--dataset",choices=["metr_la","pems_bay","both"],default="metr_la")
     p.add_argument("--fast",action="store_true",help="Use a contiguous chronological subset for quick experiments")
     p.add_argument("--max-rows",type=int,default=1200,help="Rows to use in fast mode")
-    p.add_argument("--rounds",type=int,default=3)
+    p.add_argument("--rounds",type=int,default=None,help="Training rounds; defaults to 3 in --fast mode and 30 in full mode")
+    p.add_argument("--clients",type=int,default=30)
+    p.add_argument("--edges",type=int,default=4)
+    p.add_argument("--tau",type=float,default=0.006)
+    p.add_argument("--rank",type=int,default=1)
+    p.add_argument("--k",type=int,default=2)
+    p.add_argument("--w-edge",type=float,default=1.0)
+    p.add_argument("--w-cloud",type=float,default=1.0)
     p.add_argument("--seed",type=int,default=17)
     p.add_argument("--data-dir",default=None)
     p.add_argument("--output-dir",default=None)
@@ -504,8 +609,9 @@ def main():
     args=p.parse_args()
     datasets=["metr_la","pems_bay"] if args.dataset=="both" else [args.dataset]
     all_summaries=[]
+    rounds = int(args.rounds if args.rounds is not None else (3 if args.fast else 30))
     for ds in datasets:
-        meta,metrics,costs=run_pipeline(ds,args.fast,args.max_rows,args.rounds,args.seed,args.data_dir,args.output_dir,args.batch_size,args.local_epochs,args.partition,args.window_stride)
+        meta,metrics,costs=run_pipeline(ds,args.fast,args.max_rows,rounds,args.seed,args.data_dir,args.output_dir,args.batch_size,args.local_epochs,args.partition,args.window_stride,args.clients,args.edges,args.tau,args.rank,args.k,args.w_edge,args.w_cloud)
         all_summaries.append({"dataset":ds,"runtime_seconds":round(meta["runtime_seconds"],2),"metrics_rows":len(metrics),"methods":len(costs)})
     print(json.dumps({"status":"SUCCESS","datasets":all_summaries,"output_dir":str(Path(args.output_dir) if args.output_dir else ROOT/"results")},indent=2))
 

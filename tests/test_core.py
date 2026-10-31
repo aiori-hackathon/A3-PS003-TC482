@@ -119,8 +119,19 @@ def test_pipeline_smoke_produces_real_result_tables(tmp_path):
     assert hilo_clients.edge_id.nunique() >= 2
     assert hilo_clients.uploaded.any()
     assert hilo_clients.loc[hilo_clients.uploaded, "payload_bytes"].gt(16).all()
-    assert hilo_clients.forced_upload.any()
+    fixed_clients = client_logs[client_logs.method == "HiLo-Fed (fixed threshold)"]
+    assert "forced_upload" in fixed_clients.columns
+    assert hilo_clients.drift_triggered_upload.any()
+    assert not (hilo_clients.forced_upload & hilo_clients.drift_triggered_upload).any()
+    assert fixed_clients.drift_triggered_upload.any()
+    assert not np.isclose(fixed_clients.threshold.mean(), hilo_clients.threshold.mean())
     assert hilo_logs.cloud_aggregated.any()
     assert hilo_logs.edge_upload_bytes.sum() > 0
     assert (tmp_path/"results"/"convergence.csv").exists()
+    assert (tmp_path/"results"/"mb_to_target_rmse.csv").exists()
+    reach = __import__("pandas").read_csv(tmp_path/"results"/"mb_to_target_rmse.csv")
+    assert {"first_round", "weighted_mb_to_target", "target_basis"}.issubset(reach.columns)
     assert (tmp_path/"results"/"plots"/"communication_accuracy_tradeoff.png").exists()
+    assert (tmp_path/"results"/"plots"/"upload_heatmap_by_time_of_day.png").exists()
+    assert (tmp_path/"results"/"plots"/"pareto_rmse_weighted_mb.png").exists()
+    assert (tmp_path/"results"/"plots"/"mb_to_target_rmse.png").exists()

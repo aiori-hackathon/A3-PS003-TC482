@@ -14,27 +14,38 @@ st.set_page_config(page_title="HiLo-Fed | Spatial Intelligence", page_icon="◈"
 
 st.markdown("""
 <style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap');
-:root { --bg:#080d16; --panel:#101925; --line:#223247; --text:#e7eef8; --muted:#8fa2b8; --cyan:#49d7e8; --amber:#ffbd69; }
-html, body, [class*="css"] { font-family:'Manrope',sans-serif; }
-.stApp { background:radial-gradient(ellipse at 30% -10%, #15263a 0%, #080d16 52%); color:var(--text); }
-header[data-testid="stHeader"] { background:transparent; }
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+:root {
+ --bg:#faf8ff; --panel:#ffffff; --panel-soft:#f2f3ff; --line:#c3c6d7;
+ --text:#131b2e; --muted:#434655; --blue:#004ac6; --blue-container:#2563eb;
+ --teal:#006a61; --teal-soft:#d8f8f1; --danger:#ba1a1a;
+}
+html, body, [class*="css"] { font-family:'Inter',sans-serif; color:var(--text); }
+.stApp { background:var(--bg); color:var(--text); }
+header[data-testid="stHeader"] { background:rgba(250,248,255,.92); }
 .block-container { padding-top:1.2rem; max-width:1600px; }
-[data-testid="stSidebar"] { background:#0b121d; border-right:1px solid #1e2c3e; }
-[data-testid="stMetric"] { background:#101925; border:1px solid #223247; border-radius:14px; padding:14px 16px; }
-[data-testid="stMetricLabel"] { color:#91a5bb; }
-[data-testid="stMetricValue"] { color:#eaf4ff; }
-h1,h2,h3 { letter-spacing:-.04em; }
-.eyebrow { color:#49d7e8; font:500 11px 'DM Mono',monospace; letter-spacing:.16em; text-transform:uppercase; }
+[data-testid="stSidebar"] { background:#ffffff; border-right:1px solid #e2e7ff; }
+[data-testid="stSidebar"] * { color:var(--text); }
+[data-testid="stMetric"] { background:#ffffff; border:1px solid #c3c6d7; border-radius:12px; padding:14px 16px; box-shadow:0 1px 8px rgba(19,27,46,.04); }
+[data-testid="stMetricLabel"] { color:#434655; }
+[data-testid="stMetricValue"] { color:#131b2e; }
+h1,h2,h3 { letter-spacing:-.025em; color:#131b2e; }
+.eyebrow { color:#006a61; font:600 11px 'JetBrains Mono',monospace; letter-spacing:.12em; text-transform:uppercase; }
 .hero { display:flex; justify-content:space-between; align-items:center; gap:20px; padding:8px 0 20px; }
-.brand { font-size:30px; font-weight:800; letter-spacing:-.06em; }
-.brand span { color:#49d7e8; }
-.subtitle { color:#91a5bb; font-size:13px; margin-top:3px; }
-.status { border:1px solid #25535d; color:#7fe8d7; background:#0d282c; padding:7px 11px; border-radius:99px; font:11px 'DM Mono',monospace; white-space:nowrap; }
-.panel-title { font-size:16px; font-weight:750; margin-bottom:3px; }
-.panel-sub { color:#91a5bb; font-size:12px; margin-bottom:12px; }
-.small-mono { font:11px 'DM Mono',monospace; color:#91a5bb; }
-div[data-testid="stTabs"] button { font-weight:650; }
+.brand { font-size:30px; font-weight:800; letter-spacing:-.05em; color:#131b2e; }
+.brand span { color:#004ac6; }
+.subtitle { color:#434655; font-size:13px; margin-top:3px; }
+.status { border:1px solid #89d8cb; color:#005049; background:#e6fbf6; padding:7px 11px; border-radius:8px; font:11px 'JetBrains Mono',monospace; white-space:nowrap; }
+.panel-title { font-size:16px; font-weight:700; margin-bottom:3px; color:#131b2e; }
+.panel-sub { color:#434655; font-size:12px; margin-bottom:12px; }
+.small-mono { font:11px 'JetBrains Mono',monospace; color:#434655; }
+div[data-testid="stTabs"] button { font-weight:650; color:#434655; }
+div[data-testid="stTabs"] button[aria-selected="true"] { color:#004ac6; }
+.stButton > button[kind="primary"] { background:#004ac6; border:1px solid #004ac6; color:#fff; border-radius:8px; }
+.stButton > button { border-radius:8px; border-color:#c3c6d7; }
+input, textarea, [data-baseweb="select"] > div { background:#fff !important; }
+[data-testid="stDataFrame"], [data-testid="stTable"] { border:1px solid #c3c6d7; border-radius:10px; overflow:hidden; }
+hr { border-color:#e2e7ff; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -69,17 +80,22 @@ st.sidebar.caption("Map points represent sensor locations from the supplied meta
 
 with st.sidebar.expander("Run a real experiment", expanded=False):
     st.caption("Executes the HiLo-Fed training pipeline on the selected original dataset. Results are written to results/ and then read by this dashboard.")
-    run_rounds = st.slider("Federated rounds", min_value=1, max_value=10, value=3)
-    run_rows = st.select_slider("Fast-run rows", options=[300, 600, 900, 1200, 1800, 2400], value=1200)
+    run_rounds = st.slider("Federated rounds", min_value=1, max_value=30, value=30)
+    run_rows = st.select_slider("Fast-run rows (small dataset slice)", options=[300, 600, 900, 1200, 1800, 2400], value=1200)
     run_seed = st.number_input("Random seed", min_value=0, max_value=999999, value=17, step=1)
     run_partition = st.selectbox("Client partition", ["sensor", "iid"], index=0)
+    run_tau = st.slider("Upload threshold τ", min_value=0.001, max_value=0.1, value=0.006, step=0.001)
+    run_rank = st.slider("LoRA rank", min_value=1, max_value=8, value=1, step=1)
+    run_k = st.slider("Cloud sync interval K", min_value=1, max_value=5, value=2, step=1)
+    run_w_edge = st.slider("Edge communication weight", min_value=0.0, max_value=5.0, value=1.0, step=0.1)
+    run_w_cloud = st.slider("Cloud communication weight", min_value=0.0, max_value=5.0, value=1.0, step=0.1)
     run_clicked = st.button("Run HiLo-Fed pipeline", type="primary", use_container_width=True)
 if run_clicked:
     try:
         with st.spinner(f"Training federated models on {dataset_label}. This can take several minutes..."):
             run_result = run_experiment(
                 ROOT, dataset, rounds=int(run_rounds), max_rows=int(run_rows),
-                seed=int(run_seed), partition=run_partition,
+                seed=int(run_seed), partition=run_partition, tau=float(run_tau), rank=int(run_rank), k=int(run_k), w_edge=float(run_w_edge), w_cloud=float(run_w_cloud),
             )
         st.session_state["last_run_summary"] = run_result["summary"]
         st.session_state["last_run_stdout"] = run_result["stdout"]
@@ -191,15 +207,34 @@ elif view == "Federated topology":
     log_path = ROOT / "results" / ("round_logs_pems_bay.csv" if dataset=="pems_bay" else "round_logs.csv")
     if log_path.exists():
         logs = pd.read_csv(log_path)
+        trigger_cols = [c for c in ["method", "round", "drift_triggered_uploads", "forced_uploads", "mean_drift", "mean_threshold", "client_uploads"] if c in logs.columns]
+        if {"drift_triggered_uploads", "forced_uploads"}.issubset(logs.columns):
+            st.markdown("**Upload trigger breakdown (per round)**")
+            st.dataframe(logs[trigger_cols].tail(120), use_container_width=True, hide_index=True)
+            st.bar_chart(logs.groupby("method")[["drift_triggered_uploads", "forced_uploads"]].sum())
+        else:
+            st.warning("This saved round log does not contain separate drift-triggered and forced-upload counters. Run a fresh experiment to generate them.")
+        st.markdown("**Latest round logs**")
         st.dataframe(logs.tail(30), use_container_width=True, hide_index=True)
 elif view == "Communication lab":
     st.markdown('<div class="panel-title">Communication lab</div><div class="panel-sub">Payload measurements from actual pipeline experiment artifacts.</div>', unsafe_allow_html=True)
     p = ROOT / "results" / ("communication_costs_pems_bay.csv" if dataset=="pems_bay" else "communication_costs.csv")
     if p.exists():
         df = pd.read_csv(p)
-        st.dataframe(df, use_container_width=True, hide_index=True)
+        preferred = [c for c in ["method", "client_upload_bytes", "total_bytes", "upload_reduction_pct", "total_reduction_pct", "weighted_cost_mb", "accuracy_per_mb", "target_rmse_mph", "target_rmse_reached", "communication_scope"] if c in df.columns]
+        if preferred:
+            st.markdown("**FedAvg-referenced reductions and weighted-cost metrics**")
+            st.dataframe(df[preferred], use_container_width=True, hide_index=True)
+        else:
+            st.dataframe(df, use_container_width=True, hide_index=True)
         numeric = df.select_dtypes(include="number")
-        if not numeric.empty: st.bar_chart(numeric)
+        if not numeric.empty and "total_bytes" in df.columns:
+            st.bar_chart(df.set_index("method")[["total_bytes"]].fillna(0))
+        plot_dir = ROOT / "results" / ("plots_pems_bay" if dataset=="pems_bay" else "plots")
+        for plot_name in ["pareto_rmse_weighted_mb.png", "mb_to_target_rmse.png", "upload_heatmap_by_time_of_day.png", "upload_heatmap_by_round.png", "communication_bytes.png"]:
+            plot_path = plot_dir / plot_name
+            if plot_path.exists():
+                st.image(str(plot_path), caption=plot_name.replace("_", " ").replace(".png", "").title(), use_container_width=True)
     else:
         st.info("No communication report found. Run an experiment first.")
     st.caption("Interpret compression ratios only alongside the codec, payload accounting method, and experiment configuration.")

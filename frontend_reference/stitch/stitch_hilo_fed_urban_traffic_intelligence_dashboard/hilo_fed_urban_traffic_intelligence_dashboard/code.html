@@ -1,0 +1,796 @@
+<!DOCTYPE html><html lang="en"><svg class="inline-defs-container" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden"></svg><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_dashboard" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"error":"#ba1a1a","primary-fixed":"#dbe1ff","background":"#faf8ff","surface-variant":"#dae2fd","surface-bright":"#faf8ff","primary-fixed-dim":"#b4c5ff","surface-container-highest":"#dae2fd","on-surface-variant":"#434655","on-primary-container":"#eeefff","surface-container-lowest":"#ffffff","secondary-fixed":"#89f5e7","tertiary-fixed":"#71f8e4","on-tertiary-fixed":"#00201c","secondary-fixed-dim":"#6bd8cb","inverse-on-surface":"#eef0ff","primary-container":"#2563eb","on-primary-fixed":"#00174b","on-secondary-fixed-variant":"#005049","tertiary":"#006056","on-primary-fixed-variant":"#003ea8","outline-variant":"#c3c6d7","surface-container-high":"#e2e7ff","outline":"#737686","surface-dim":"#d2d9f4","on-error":"#ffffff","secondary":"#006a61","tertiary-container":"#007b6e","on-secondary-container":"#006f66","surface-container-low":"#f2f3ff","on-tertiary-container":"#b1fff1","tertiary-fixed-dim":"#4fdbc8","on-primary":"#ffffff","surface":"#faf8ff","on-tertiary-fixed-variant":"#005048","on-background":"#131b2e","on-surface":"#131b2e","secondary-container":"#86f2e4","on-secondary":"#ffffff","surface-container":"#eaedff","on-tertiary":"#ffffff","surface-tint":"#0053db","primary":"#004ac6","inverse-primary":"#b4c5ff","inverse-surface":"#283044","error-container":"#ffdad6","on-error-container":"#93000a","on-secondary-fixed":"#00201d"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"space-xs":"0.25rem","space-sm":"0.5rem","space-md":"0.75rem","margin-lg":"2rem","gutter-sm":"0.5rem","gutter-lg":"1.5rem","margin-sm":"1rem","space-xl":"1.5rem","space-lg":"1rem","gutter":"1rem","margin":"1.5rem"},fontFamily:{"label-lg":["JetBrains Mono"],"headline-sm":["Inter"],"body-md":["Inter"],"body-lg":["Inter"],"headline-xl-mobile":["Inter"],"headline-lg":["Inter"],"label-sm":["JetBrains Mono"],"body-sm":["Inter"],"headline-md":["Inter"],"label-md":["JetBrains Mono"],"headline-xl":["Inter"]},fontSize:{"label-lg":["12px",{"lineHeight":"16px","letterSpacing":"0.04em","fontWeight":"500"}],"headline-sm":["15px",{"lineHeight":"22px","letterSpacing":"-0.01em","fontWeight":"600"}],"body-md":["13px",{"lineHeight":"20px","letterSpacing":"0em","fontWeight":"400"}],"body-lg":["15px",{"lineHeight":"24px","letterSpacing":"-0.005em","fontWeight":"400"}],"headline-xl-mobile":["28px",{"lineHeight":"36px","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-lg":["24px",{"lineHeight":"32px","letterSpacing":"-0.02em","fontWeight":"600"}],"label-sm":["10px",{"lineHeight":"12px","letterSpacing":"0.06em","fontWeight":"600"}],"body-sm":["12px",{"lineHeight":"18px","letterSpacing":"0em","fontWeight":"400"}],"headline-md":["18px",{"lineHeight":"26px","letterSpacing":"-0.015em","fontWeight":"600"}],"label-md":["11px",{"lineHeight":"14px","letterSpacing":"0.05em","fontWeight":"500"}],"headline-xl":["36px",{"lineHeight":"44px","letterSpacing":"-0.025em","fontWeight":"700"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-lowest z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col"><div class="h-16 px-space-lg flex items-center justify-between bg-surface-container-low/50"><div class="flex items-center gap-space-sm"><img alt="HiLo-Fed Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1XBQ7Hp-0BiD-cIAv5uul3JWH6gtuh_FU5d2Pk-kFXjLemGS6wu3jKEH7WcU7kGuJVZvEAb6fHWFyDHDfb3Yv_lTQx7j4UBAttYjXwyxWl3ZPFppO3ayGjPeh7L3tUB7MScVr-QpoovsnV-X4LY4_OCkfdWnxMyCdRULEtHsogBoMJpO_hD27m94NIJEHNc5drewWuxLoxXXP4hV6yn4ZP-m2IDKnCj_y7P0XLgR8gS"><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight leading-none">HiLo-Fed</span><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Research Core</span></div></div><span class="px-space-xs py-[2px] rounded bg-surface-container text-primary font-label-sm text-label-sm font-semibold tracking-wider">v2.4</span></div><div class="px-space-md py-space-sm"><div class="px-space-sm py-space-xs font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant font-semibold">Intelligence Console</div></div><nav class="flex flex-col gap-[2px] px-space-md" data-active-classes="bg-primary-container text-on-primary-container font-semibold shadow-sm"><a aria-current="page" class="flex items-center gap-space-md px-space-md py-space-sm rounded transition-all bg-primary-container text-on-primary-container font-semibold shadow-sm" data-path="overview" href="#"><span class="material-symbols-outlined text-[18px]">dashboard</span><span class="">Overview</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-all" data-path="traffic-network" href="#"><span class="material-symbols-outlined text-[18px]">hub</span><span class="">Traffic Network</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-all" data-path="forecast-explorer" href="#"><span class="material-symbols-outlined text-[18px]">insights</span><span class="">Forecast Explorer</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-all" data-path="benchmark" href="#"><span class="material-symbols-outlined text-[18px]">leaderboard</span><span class="">Benchmark</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-all" data-path="federated-learning" href="#"><span class="material-symbols-outlined text-[18px]">account_tree</span><span class="">Federated Learning</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-all" data-path="communication-lab" href="#"><span class="material-symbols-outlined text-[18px]">network_check</span><span class="">Communication Lab</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-all" data-path="experiments-reports" href="#"><span class="material-symbols-outlined text-[18px]">query_stats</span><span class="">Experiments &amp; Reports</span></a></nav></div><div class="flex flex-col p-space-md gap-space-sm bg-surface-container-low/40"><div class="flex items-center justify-between px-space-md py-space-sm rounded bg-surface-container-lowest shadow-[0_1px_3px_rgba(15,23,42,0.04)]"><div class="flex items-center gap-space-sm"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary-fixed-dim opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span></span><span class="font-label-md text-label-md text-on-surface">Cluster Active</span></div><span class="font-label-sm text-label-sm text-secondary font-semibold">99.98%</span></div><div class="flex items-center justify-between pt-space-xs px-space-xs text-on-surface-variant"><div class="flex items-center gap-space-xs"><button class="p-space-xs rounded hover:bg-surface-container hover:text-on-surface transition-colors flex items-center" title="System Settings" type="button"><span class="material-symbols-outlined text-[18px]">tune</span></button><a class="p-space-xs rounded hover:bg-surface-container hover:text-on-surface transition-colors flex items-center" data-path="documentation" href="#" title="API &amp; Fed Docs"><span class="material-symbols-outlined text-[18px]">description</span></a></div><div class="flex items-center bg-surface-container p-[2px] rounded"><button class="p-space-xs rounded bg-surface-container-lowest text-on-surface flex items-center shadow-xs" title="Light Mode" type="button"><span class="material-symbols-outlined text-[14px]">light_mode</span></button><button class="p-space-xs rounded text-on-surface-variant hover:text-on-surface flex items-center" title="Dark Mode" type="button"><span class="material-symbols-outlined text-[14px]">dark_mode</span></button></div></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface-container-lowest/95 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-gutter-lg"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-sm"><img alt="HiLo-Fed Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1XBQ7Hp-0BiD-cIAv5uul3JWH6gtuh_FU5d2Pk-kFXjLemGS6wu3jKEH7WcU7kGuJVZvEAb6fHWFyDHDfb3Yv_lTQx7j4UBAttYjXwyxWl3ZPFppO3ayGjPeh7L3tUB7MScVr-QpoovsnV-X4LY4_OCkfdWnxMyCdRULEtHsogBoMJpO_hD27m94NIJEHNc5drewWuxLoxXXP4hV6yn4ZP-m2IDKnCj_y7P0XLgR8gS"><div class="flex flex-col"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm text-on-surface leading-tight">Urban Traffic Intelligence</span><span class="font-label-sm text-label-sm text-on-surface-variant font-normal">/</span><span class="font-label-sm text-label-sm text-on-surface-variant">Los Angeles Metro Grid</span></div><span class="font-label-sm text-label-sm text-primary tracking-wide">Tier-1 Federated Cluster</span></div></div><div class="hidden xl:flex items-center bg-surface-container p-[2px] rounded"><button class="px-space-md py-[4px] rounded bg-surface-container-lowest text-on-surface font-label-md text-label-md shadow-xs transition-colors" type="button">METR-LA (207 Sensors)</button><button class="px-space-md py-[4px] rounded text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors" type="button">PEMS-BAY (325 Sensors)</button></div></div><div class="flex items-center gap-space-md"><div class="hidden lg:flex items-center gap-space-sm px-space-md py-[6px] rounded bg-surface-container-low"><span class="material-symbols-outlined text-primary text-[16px]">science</span><div class="flex flex-col text-left"><span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant leading-none">Selected Topology</span><span class="font-label-md text-label-md text-on-surface font-medium truncate max-w-[210px]">Exp #842: HiLo Hierarchical Top-k</span></div></div><div class="hidden 2xl:flex items-center gap-space-md px-space-md py-[6px] rounded bg-surface-container-low"><div class="flex flex-col text-right"><span class="font-label-sm text-label-sm text-on-surface-variant leading-none">Epoch 120/120</span><span class="font-label-md text-label-md text-secondary font-semibold">Convergence: 99.4%</span></div><div class="w-12 h-1.5 bg-surface-container rounded-full overflow-hidden"><div class="h-full bg-secondary rounded-full w-[99%]"></div></div></div><button class="flex items-center gap-space-xs px-space-lg py-space-sm rounded bg-primary-container text-on-primary-container hover:bg-primary font-body-md text-body-md font-semibold transition-all shadow-sm" type="button"><span class="material-symbols-outlined text-[18px]">play_arrow</span><span class="">Run Experiment</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="w-full pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- PRIMARY COMMAND BANNER & FILTER BAR -->
+<div class="px-gutter-lg py-space-md bg-surface-container-lowest/80 flex flex-wrap items-center justify-between gap-space-md shadow-xs">
+<div class="flex items-center gap-space-lg flex-wrap">
+<div class="flex items-center gap-space-sm">
+<span class="inline-flex items-center justify-center w-7 h-7 rounded bg-primary-container text-on-primary-container">
+<span class="material-symbols-outlined text-[16px]">radar</span>
+</span>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-sm text-headline-sm text-on-surface">Spatial-Temporal Graph Federated Core</span>
+<span class="px-space-xs py-[1px] rounded bg-secondary/10 text-secondary font-label-sm text-label-sm tracking-widest font-semibold uppercase">LIVE STREAM</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">METR-LA Sensor Deployment • Graph Attention Network + Top-k Sparsity</span>
+</div>
+</div>
+<div class="h-6 w-[1px] bg-surface-container-high hidden md:block"></div>
+<!-- Segmented Time Horizon Control -->
+<div class="flex items-center bg-surface-container-low p-[2px] rounded">
+<span class="px-space-sm font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Horizon</span>
+<button class="horizon-btn px-space-md py-[3px] rounded text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors" data-horizon="15" type="button">15m</button>
+<button class="horizon-btn px-space-md py-[3px] rounded text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors" data-horizon="30" type="button">30m</button>
+<button class="horizon-btn px-space-md py-[3px] rounded bg-surface-container-lowest text-primary font-semibold font-label-md text-label-md shadow-xs" data-horizon="60" type="button">60m</button>
+<button class="horizon-btn px-space-md py-[3px] rounded text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors" data-horizon="120" type="button">120m</button>
+</div>
+</div>
+<div class="flex items-center gap-space-sm">
+<div class="flex items-center gap-space-xs px-space-md py-space-xs rounded bg-surface-container-low">
+<span class="material-symbols-outlined text-secondary text-[16px]">sync</span>
+<span class="font-label-md text-label-md text-on-surface">Sync Interval:</span>
+<span class="font-label-md text-label-md font-semibold text-secondary">10.0s</span>
+</div>
+<button class="flex items-center gap-space-xs px-space-md py-space-xs rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors" id="freezeStreamBtn" type="button">
+<span class="material-symbols-outlined text-[16px]">pause_circle</span>
+<span class="">Pause Sync</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-md py-space-xs rounded bg-primary text-on-primary hover:bg-surface-tint font-label-md text-label-md transition-colors shadow-xs" type="button">
+<span class="material-symbols-outlined text-[16px]">download</span>
+<span class="">Snapshot Report</span>
+</button>
+</div>
+</div>
+<!-- MAIN SCROLLABLE DASHBOARD CANVAS -->
+<div class="p-gutter-lg flex flex-col gap-space-lg">
+<!-- 1. COMPACT KPI STRIP (5 HYPER-PRECISE TECHNICAL METRIC CARDS) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-space-md">
+<!-- KPI 1 -->
+<div class="bg-surface-container-lowest p-space-md rounded shadow-xs flex flex-col justify-between group hover:shadow-md transition-all">
+<div class="flex items-start justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">Forecast MAE</span>
+<span class="px-space-xs py-[2px] rounded bg-secondary-fixed/30 text-secondary font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">trending_down</span>-14.2%
+          </span>
+</div>
+<div class="my-space-xs flex items-baseline gap-space-xs">
+<span class="font-headline-lg text-headline-lg text-on-surface tracking-tight font-bold">2.68</span>
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">mph</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-sm text-label-sm">FedAvg: 3.12 mph</span>
+<!-- Inline Sparkline SVG -->
+<svg class="w-16 h-5 text-secondary" fill="none" viewBox="0 0 64 20">
+<path d="M1 17L12 14L24 16L36 10L48 11L63 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"></path>
+<path d="M1 17L12 14L24 16L36 10L48 11L63 4V20H1Z" fill="currentColor" fill-opacity="0.12"></path>
+</svg>
+</div>
+</div>
+<!-- KPI 2 -->
+<div class="bg-surface-container-lowest p-space-md rounded shadow-xs flex flex-col justify-between group hover:shadow-md transition-all">
+<div class="flex items-start justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">Forecast RMSE</span>
+<span class="px-space-xs py-[2px] rounded bg-primary-fixed/40 text-primary font-label-sm text-label-sm font-semibold">
+            SOTA 60m
+          </span>
+</div>
+<div class="my-space-xs flex items-baseline gap-space-xs">
+<span class="font-headline-lg text-headline-lg text-on-surface tracking-tight font-bold">4.91</span>
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">mph</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-sm text-label-sm">Confidence 96.8%</span>
+<svg class="w-16 h-5 text-primary" fill="none" viewBox="0 0 64 20">
+<path d="M1 18L14 15L27 12L38 13L50 8L63 5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"></path>
+<path d="M1 18L14 15L27 12L38 13L50 8L63 5V20H1Z" fill="currentColor" fill-opacity="0.12"></path>
+</svg>
+</div>
+</div>
+<!-- KPI 3 -->
+<div class="bg-surface-container-lowest p-space-md rounded shadow-xs flex flex-col justify-between group hover:shadow-md transition-all">
+<div class="flex items-start justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">Comm Overhead</span>
+<span class="px-space-xs py-[2px] rounded bg-secondary-fixed/30 text-secondary font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">download_done</span>-68.4%
+          </span>
+</div>
+<div class="my-space-xs flex items-baseline gap-space-xs">
+<span class="font-headline-lg text-headline-lg text-on-surface tracking-tight font-bold">142.8</span>
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">MB</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-sm text-label-sm">Baseline: 452 MB</span>
+<svg class="w-16 h-5 text-secondary" fill="none" viewBox="0 0 64 20">
+<path d="M1 5L15 8L30 11L42 14L54 16L63 18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"></path>
+<path d="M1 5L15 8L30 11L42 14L54 16L63 18V20H1Z" fill="currentColor" fill-opacity="0.1"></path>
+</svg>
+</div>
+</div>
+<!-- KPI 4 -->
+<div class="bg-surface-container-lowest p-space-md rounded shadow-xs flex flex-col justify-between group hover:shadow-md transition-all">
+<div class="flex items-start justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">Active Clients</span>
+<span class="px-space-xs py-[2px] rounded bg-secondary/15 text-secondary font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-secondary"></span>100% Sync
+          </span>
+</div>
+<div class="my-space-xs flex items-baseline gap-space-xs">
+<span class="font-headline-lg text-headline-lg text-on-surface tracking-tight font-bold">207</span>
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">/ 207 Nodes</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span class="">Tier-1: 34 Hubs</span>
+<span class="text-primary font-medium">Tier-2: 173 Edge</span>
+</div>
+</div>
+<!-- KPI 5 -->
+<div class="bg-surface-container-lowest p-space-md rounded shadow-xs flex flex-col justify-between group hover:shadow-md transition-all">
+<div class="flex items-start justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">Fed Aggregation</span>
+<span class="px-space-xs py-[2px] rounded bg-primary-fixed/40 text-primary font-label-sm text-label-sm font-semibold">
+            Converged @ 84
+          </span>
+</div>
+<div class="my-space-xs flex items-baseline gap-space-xs">
+<span class="font-headline-lg text-headline-lg text-on-surface tracking-tight font-bold">120</span>
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">/ 120 Epochs</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-1.5 overflow-hidden">
+<div class="bg-primary h-full w-full rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- 2. CENTRAL COCKPIT ROW: HERO MAP (65%) + FED TOPOLOGY (35%) -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg items-stretch">
+<!-- HERO CARTOGRAPHIC VISUALIZATION (xl:col-span-8) -->
+<div class="xl:col-span-8 bg-surface-container-lowest rounded shadow-xs flex flex-col relative overflow-hidden min-h-[580px]">
+<!-- Map Header & Control Overlay -->
+<div class="px-space-lg py-space-sm bg-surface-container-lowest/90 backdrop-blur-md flex flex-wrap items-center justify-between gap-space-md z-20 shadow-xs">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[20px]">map</span>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface">Los Angeles Highway &amp; Sensor Arterial Topology</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">I-5 • I-10 • I-405 • US-101 • I-110 • I-710 Spatial Correlation Mesh</span>
+</div>
+</div>
+<!-- Controls & Toggles -->
+<div class="flex items-center gap-space-xs flex-wrap">
+<div class="flex items-center bg-surface-container-low p-[2px] rounded text-on-surface-variant">
+<button class="px-space-sm py-[3px] rounded bg-surface-container-lowest text-primary font-label-md text-label-md font-medium shadow-xs flex items-center gap-1" id="toggleGNN" type="button">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>GNN Adjacency
+              </button>
+<button class="px-space-sm py-[3px] rounded text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors flex items-center gap-1" id="toggleSpeed" type="button">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>Speed Flow
+              </button>
+<button class="px-space-sm py-[3px] rounded text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors" id="toggleClusters" type="button">
+                Clusters
+              </button>
+</div>
+<div class="flex items-center bg-surface-container-low rounded p-[2px]">
+<button class="w-7 h-7 flex items-center justify-center rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface" title="Zoom In" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+<button class="w-7 h-7 flex items-center justify-center rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface" title="Zoom Out" type="button">
+<span class="material-symbols-outlined text-[16px]">remove</span>
+</button>
+<button class="w-7 h-7 flex items-center justify-center rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface" title="Reset View" type="button">
+<span class="material-symbols-outlined text-[16px]">restart_alt</span>
+</button>
+</div>
+<span class="px-space-xs py-[3px] rounded bg-secondary-fixed/40 text-on-secondary-fixed-variant font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="animate-pulse w-2 h-2 rounded-full bg-secondary"></span>Live Telemetry
+            </span>
+</div>
+</div>
+<!-- Cartographic Canvas: Precision SVG Vector Map -->
+<div class="relative flex-1 w-full h-[520px] bg-surface-container-lowest overflow-hidden select-none">
+<!-- Background Grid Matrix Lines -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none opacity-35" height="100%" width="100%" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern height="40" id="grid-pattern" patternUnits="userSpaceOnUse" width="40">
+<path d="M 40 0 L 0 0 0 40" fill="none" stroke="#c3c6d7" stroke-width="0.5"></path>
+<circle cx="0" cy="0" fill="#737686" opacity="0.6" r="1"></circle>
+</pattern>
+</defs>
+<rect fill="url(#grid-pattern)" height="100%" width="100%"></rect>
+</svg>
+<!-- Geographic Water / Land Accents -->
+<svg class="absolute inset-0 w-full h-full" fill="none" preserveAspectRatio="xMidYMid slice" viewBox="0 0 920 540">
+<!-- Santa Monica Bay coastline simulation -->
+<path d="M0,0 L180,0 C170,120 140,210 110,290 C80,380 40,460 0,540 Z" fill="#dae2fd" fill-opacity="0.35"></path>
+<!-- Coastline hairline -->
+<path d="M180,0 C170,120 140,210 110,290 C80,380 40,460 0,540" stroke="#b4c5ff" stroke-dasharray="3 3" stroke-width="1.25"></path>
+<text class="font-label-sm text-label-sm tracking-widest uppercase opacity-70" fill="#737686" transform="rotate(-65 50 240)" x="50" y="240">PACIFIC OCEAN</text>
+<text class="font-label-sm text-label-sm tracking-widest uppercase opacity-70" fill="#737686" x="760" y="60">SAN GABRIEL MTNS</text>
+<text class="font-label-md text-label-md font-bold tracking-wider opacity-60" fill="#434655" x="490" y="290">DOWNTOWN LA</text>
+<text class="font-label-sm text-label-sm tracking-widest opacity-60" fill="#737686" x="210" y="240">SANTA MONICA</text>
+<text class="font-label-sm text-label-sm tracking-widest opacity-60" fill="#737686" x="610" y="110">PASADENA</text>
+<text class="font-label-sm text-label-sm tracking-widest opacity-60" fill="#737686" x="490" y="490">LONG BEACH</text>
+<!-- Major Arterial System (Gray roads) -->
+<g stroke="#eaedff" stroke-linecap="round" stroke-linejoin="round" stroke-width="8">
+<!-- Arterial background buffers -->
+<path d="M120,220 C230,220 380,240 500,280 C620,320 740,330 890,340"></path>
+<path d="M210,130 C300,190 420,240 500,280 C560,330 600,420 630,530"></path>
+<path d="M460,30 C470,140 490,220 500,280 C510,350 515,440 510,540"></path>
+<path d="M350,30 C360,110 370,200 375,300 C380,410 400,490 420,540"></path>
+<path d="M140,300 C270,300 400,320 520,380 C640,430 760,450 890,470"></path>
+<path d="M600,40 C610,120 570,220 500,280 C440,320 330,370 230,420"></path>
+</g>
+<!-- Highway Lines with Color Flow Status -->
+<!-- I-10 Santa Monica to El Monte / San Bernardino -->
+<path d="M120,220 C230,220 380,240 500,280 C600,310 700,320 890,320" fill="none" id="hwy-i10" opacity="0.85" stroke="#004ac6" stroke-linecap="round" stroke-width="3"></path>
+<!-- US-101 Hollywood Fwy -->
+<path d="M210,130 C300,190 420,240 500,280 C570,320 710,370 850,420" fill="none" id="hwy-us101" opacity="0.8" stroke="#006a61" stroke-linecap="round" stroke-width="2.5"></path>
+<!-- I-110 Harbor Freeway -->
+<path d="M500,120 C500,200 500,280 500,380 C500,440 480,490 470,540" fill="none" id="hwy-i110" opacity="0.85" stroke="#ba1a1a" stroke-linecap="round" stroke-width="2.5"></path>
+<!-- I-405 San Diego Freeway -->
+<path d="M320,40 C340,140 370,240 370,330 C370,410 420,480 470,540" fill="none" id="hwy-i405" opacity="0.85" stroke="#006a61" stroke-linecap="round" stroke-width="3"></path>
+<!-- I-5 Golden State / Santa Ana Fwy -->
+<path d="M380,30 C420,110 470,210 500,280 C540,330 630,420 730,520" fill="none" id="hwy-i5" opacity="0.85" stroke="#004ac6" stroke-linecap="round" stroke-width="3"></path>
+<!-- I-710 Long Beach Fwy -->
+<path d="M600,290 C600,360 610,430 620,540" fill="none" id="hwy-i710" opacity="0.75" stroke="#006a61" stroke-linecap="round" stroke-width="2"></path>
+<!-- I-210 Foothill Fwy -->
+<path d="M430,70 C520,70 630,90 780,120" fill="none" id="hwy-i210" opacity="0.75" stroke="#006a61" stroke-linecap="round" stroke-width="2"></path>
+<!-- Route Highway Badges -->
+<g fill="#131b2e" font-family="JetBrains Mono" font-size="9" font-weight="600">
+<rect fill="#ffffff" height="15" rx="3" stroke="#c3c6d7" stroke-width="0.8" width="28" x="230" y="212"></rect>
+<text fill="#004ac6" x="235" y="223">I-10</text>
+<rect fill="#ffffff" height="15" rx="3" stroke="#c3c6d7" stroke-width="0.8" width="36" x="330" y="150"></rect>
+<text fill="#006a61" x="334" y="161">I-405</text>
+<rect fill="#ffffff" height="15" rx="3" stroke="#c3c6d7" stroke-width="0.8" width="30" x="420" y="110"></rect>
+<text fill="#004ac6" x="427" y="121">I-5</text>
+<rect fill="#ffffff" height="15" rx="3" stroke="#c3c6d7" stroke-width="0.8" width="36" x="515" y="340"></rect>
+<text fill="#ba1a1a" x="519" y="351">I-110</text>
+<rect fill="#ffffff" height="15" rx="3" stroke="#c3c6d7" stroke-width="0.8" width="36" x="670" y="100"></rect>
+<text fill="#006a61" x="674" y="111">I-210</text>
+</g>
+<!-- GNN Graph Spatial Adjacency Edges (STGNN Top-k Connected Components) -->
+<g id="gnn-edges" opacity="0.45" stroke="#2563eb" stroke-dasharray="2 3" stroke-width="1">
+<line x1="280" x2="355" y1="225" y2="235"></line>
+<line x1="355" x2="425" y1="235" y2="255"></line>
+<line x1="425" x2="500" y1="255" y2="280"></line>
+<line x1="500" x2="560" y1="280" y2="300"></line>
+<line x1="560" x2="640" y1="300" y2="315"></line>
+<line x1="640" x2="720" y1="315" y2="320"></line>
+<line x1="500" x2="480" y1="280" y2="210"></line>
+<line x1="500" x2="500" y1="280" y2="350"></line>
+<line x1="500" x2="450" y1="280" y2="320"></line>
+<line x1="500" x2="550" y1="350" y2="380"></line>
+<line x1="550" x2="600" y1="380" y2="360"></line>
+<line x1="560" x2="600" y1="300" y2="260"></line>
+<line x1="600" x2="650" y1="260" y2="180"></line>
+<line x1="350" x2="360" y1="180" y2="280"></line>
+<line x1="360" x2="380" y1="280" y2="370"></line>
+<line x1="480" x2="440" y1="210" y2="140"></line>
+<line x1="440" x2="520" y1="140" y2="90"></line>
+<line x1="520" x2="610" y1="90" y2="105"></line>
+<line x1="610" x2="690" y1="105" y2="115"></line>
+<!-- Selected Target Sensor Graph Hub Ties (#773822) -->
+<line opacity="0.8" stroke="#ba1a1a" stroke-dasharray="4 2" stroke-width="1.8" x1="560" x2="500" y1="300" y2="280"></line>
+<line opacity="0.75" stroke="#007b6e" stroke-width="1.4" x1="560" x2="600" y1="300" y2="360"></line>
+<line opacity="0.75" stroke="#2563eb" stroke-width="1.4" x1="560" x2="640" y1="300" y2="315"></line>
+</g>
+<!-- Sensor Telemetry Nodes Layer -->
+<!-- Free Flow Green/Emerald Nodes (>55 mph) -->
+<g fill="#006a61">
+<circle cx="210" cy="220" r="4.5"></circle>
+<circle cx="280" cy="225" r="4.5"></circle>
+<circle cx="340" cy="95" r="4"></circle>
+<circle cx="355" cy="180" r="4.5"></circle>
+<circle cx="380" cy="370" r="4"></circle>
+<circle cx="410" cy="450" r="4.5"></circle>
+<circle cx="440" cy="140" r="5"></circle>
+<circle cx="520" cy="90" r="4.5"></circle>
+<circle cx="610" cy="105" r="5"></circle>
+<circle cx="690" cy="115" r="4.5"></circle>
+<circle cx="750" cy="120" r="4"></circle>
+<circle cx="720" cy="320" r="4.5"></circle>
+<circle cx="780" cy="320" r="4.5"></circle>
+<circle cx="600" cy="360" r="4.5"></circle>
+<circle cx="610" cy="440" r="4"></circle>
+<circle cx="670" cy="460" r="4"></circle>
+</g>
+<!-- Moderate Delay Amber Nodes (35 - 54 mph) -->
+<g fill="#92400e">
+<circle cx="355" cy="235" r="5"></circle>
+<circle cx="425" cy="255" r="5"></circle>
+<circle cx="480" cy="210" r="5"></circle>
+<circle cx="600" cy="260" r="5"></circle>
+<circle cx="650" cy="180" r="4.5"></circle>
+<circle cx="640" cy="315" r="5"></circle>
+<circle cx="550" cy="380" r="5"></circle>
+<circle cx="450" cy="320" r="5"></circle>
+<circle cx="360" cy="280" r="5"></circle>
+</g>
+<!-- Severe Congestion Red Nodes (< 35 mph) -->
+<g fill="#ba1a1a">
+<circle cx="495" cy="275" r="6"></circle>
+<circle cx="505" cy="285" r="5.5"></circle>
+<circle cx="500" cy="350" r="5.5"></circle>
+<circle cx="500" cy="410" r="5"></circle>
+</g>
+<!-- Interactive Selected Target Sensor: Sensor #773822 (I-10 E @ Santa Anita Corridor) -->
+<g class="cursor-pointer" id="selectedNodeTarget">
+<!-- Pulsing Halo Rings -->
+<circle cx="560" cy="300" fill="#ba1a1a" fill-opacity="0.18" r="18">
+<animate attributeName="r" dur="2.4s" repeatCount="indefinite" values="12;26;12"></animate>
+<animate attributeName="opacity" dur="2.4s" repeatCount="indefinite" values="0.6;0;0.6"></animate>
+</circle>
+<circle cx="560" cy="300" fill="none" r="10" stroke="#ba1a1a" stroke-width="1.8"></circle>
+<circle cx="560" cy="300" fill="#ba1a1a" r="5"></circle>
+<!-- Crosshair Reticle -->
+<line stroke="#ba1a1a" stroke-width="1.5" x1="560" x2="560" y1="284" y2="292"></line>
+<line stroke="#ba1a1a" stroke-width="1.5" x1="560" x2="560" y1="308" y2="316"></line>
+<line stroke="#ba1a1a" stroke-width="1.5" x1="544" x2="552" y1="300" y2="300"></line>
+<line stroke="#ba1a1a" stroke-width="1.5" x1="568" x2="576" y1="300" y2="300"></line>
+<!-- Callout Pin Label -->
+<rect fill="#ffffff" fill-opacity="0.95" filter="drop-shadow(0px 2px 4px rgba(0,0,0,0.06))" height="24" rx="3" stroke="#ba1a1a" stroke-width="1" width="132" x="575" y="278"></rect>
+<text fill="#ba1a1a" font-family="JetBrains Mono" font-size="10" font-weight="600" x="583" y="294">NODE #773822 [23.4 mph]</text>
+</g>
+<!-- Legend Badge bottom-left -->
+<g transform="translate(18, 470)">
+<rect fill="#ffffff" fill-opacity="0.92" height="52" rx="4" stroke="#e2e7ff" stroke-width="1" width="180"></rect>
+<circle cx="16" cy="16" fill="#006a61" r="4.5"></circle>
+<text fill="#434655" font-family="Inter" font-size="10" x="28" y="19">&gt; 55 mph (Free Flow)</text>
+<circle cx="16" cy="30" fill="#92400e" r="4.5"></circle>
+<text fill="#434655" font-family="Inter" font-size="10" x="28" y="33">35 - 54 mph (Moderate)</text>
+<circle cx="16" cy="44" fill="#ba1a1a" r="4.5"></circle>
+<text fill="#ba1a1a" font-family="Inter" font-size="10" x="28" y="47">&lt; 35 mph (Severe Congestion)</text>
+</g>
+</svg>
+<!-- FLOATING TRAFFIC INSIGHTS PANEL (Glassmorphic Overlay Bottom-Right) -->
+<div class="absolute bottom-4 right-4 w-80 sm:w-96 bg-surface-container-lowest/95 backdrop-blur-md rounded shadow-lg p-space-md z-30 transition-all">
+<div class="flex items-center justify-between pb-space-xs border-b border-surface-container">
+<div class="flex items-center gap-space-xs">
+<span class="w-2.5 h-2.5 rounded-full bg-error animate-pulse"></span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Sensor #773822</span>
+</div>
+<span class="px-space-xs py-[2px] rounded bg-error-container text-on-error-container font-label-sm text-label-sm font-semibold uppercase">
+                Severe Jam
+              </span>
+</div>
+<div class="pt-space-xs flex flex-col gap-space-xs">
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span class="">I-10 E Harbor Fwy (Milepost 14.2)</span>
+<span class="font-mono">34.0537° N, 118.2427° W</span>
+</div>
+<!-- Speed Comparison Strip -->
+<div class="grid grid-cols-3 gap-space-xs my-space-xs bg-surface-container-low p-space-xs rounded">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Observed</span>
+<span class="font-headline-sm text-headline-sm text-error font-bold">23.4 <span class="font-label-sm text-label-sm font-normal">mph</span></span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">15m Fore</span>
+<span class="font-headline-sm text-headline-sm text-error font-bold">21.8 <span class="font-label-sm text-label-sm font-normal">mph</span></span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">60m Recov</span>
+<span class="font-headline-sm text-headline-sm text-secondary font-bold">38.2 <span class="font-label-sm text-label-sm font-normal">mph</span></span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-space-xs text-on-surface-variant font-label-md text-label-md">
+<div class="flex items-center justify-between px-space-xs py-1 rounded bg-surface-container/50">
+<span class="">Model MAE:</span>
+<span class="font-semibold text-on-surface">1.84 mph</span>
+</div>
+<div class="flex items-center justify-between px-space-xs py-1 rounded bg-surface-container/50">
+<span class="">Error MAPE:</span>
+<span class="font-semibold text-on-surface">4.2%</span>
+</div>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm px-space-xs text-on-surface-variant">
+<span class="">Top Adjacency: <strong class="text-on-surface">#716339 (US-101)</strong></span>
+<span class="text-primary font-semibold">Weight: 0.84</span>
+</div>
+<div class="flex items-center gap-space-xs pt-space-xs">
+<button class="flex-1 py-space-xs px-space-sm bg-primary hover:bg-surface-tint text-on-primary rounded font-label-md text-label-md font-medium text-center transition-colors" type="button">
+                  Node Inspector
+                </button>
+<button class="py-space-xs px-space-sm bg-surface-container hover:bg-surface-container-high text-on-surface rounded font-label-md text-label-md font-medium flex items-center gap-1 transition-colors" title="Export Model Weights" type="button">
+<span class="material-symbols-outlined text-[16px]">file_download</span>
+<span class="">Weights</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- FEDERATED ARCHITECTURE & HIERARCHICAL TOPOLOGY (xl:col-span-4) -->
+<div class="xl:col-span-4 bg-surface-container-lowest rounded shadow-xs p-space-lg flex flex-col justify-between">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">account_tree</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">HiLo Federated Architecture</span>
+</div>
+<span class="px-space-xs py-[2px] rounded bg-secondary/10 text-secondary font-label-sm text-label-sm font-semibold uppercase">
+              Top-k 20% Active
+            </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Two-tier spatial aggregation decoupling local edge dynamics from regional traffic trends with 78% weight sparsity.
+          </p>
+<!-- Interactive Topology Selector Tabs -->
+<div class="flex items-center bg-surface-container-low p-[2px] rounded mt-space-xs">
+<button class="flex-1 py-1 rounded bg-surface-container-lowest text-primary font-label-md text-label-md font-medium shadow-xs" id="topoTabGNN" type="button">
+              ST-GNN Hierarchy
+            </button>
+<button class="flex-1 py-1 rounded text-on-surface-variant hover:text-on-surface font-label-md text-label-md font-medium transition-colors" id="topoTabSparsity" type="button">
+              Sparsity Matrices
+            </button>
+</div>
+<!-- Structural Diagram Container -->
+<div class="bg-surface-container-low/70 rounded p-space-md flex flex-col gap-space-md my-space-xs" id="fedArchitectureDisplay">
+<!-- Tier 3: Global Parameter Server -->
+<div class="flex flex-col items-center p-space-sm bg-surface-container-lowest rounded shadow-xs">
+<div class="flex items-center justify-between w-full">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary font-bold">Global Parameter Server</span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">Epoch 120 (Optimal)</span>
+</div>
+<div class="flex items-center gap-space-md mt-space-xs">
+<div class="w-10 h-10 rounded bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]">cloud_sync</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Synchronized Matrix Θ<sub>t</sub></span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Dimension: 207 × 207 × 64 Features</span>
+</div>
+</div>
+</div>
+<!-- Inter-Tier Channel indicator -->
+<div class="flex items-center justify-center gap-2 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-primary">arrow_downward</span>
+<span class="uppercase tracking-widest text-[10px]">Tier-1 Aggregation Channel (4 Hubs)</span>
+<span class="material-symbols-outlined text-[16px] text-primary">arrow_upward</span>
+</div>
+<!-- Tier 2: Tier-1 High-Capacity Edge Aggregators (Regional Hubs) -->
+<div class="grid grid-cols-2 gap-space-xs">
+<div class="p-space-xs bg-surface-container-lowest rounded shadow-xs flex flex-col">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm font-semibold text-on-surface">Hub 1: North</span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">52 Edge Nodes</span>
+<span class="font-label-sm text-label-sm text-primary font-mono mt-1">Sparsity: 82%</span>
+</div>
+<div class="p-space-xs bg-surface-container-lowest rounded shadow-xs flex flex-col">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm font-semibold text-on-surface">Hub 2: Central</span>
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">64 Edge Nodes</span>
+<span class="font-label-sm text-label-sm text-primary font-mono mt-1">Sparsity: 76%</span>
+</div>
+<div class="p-space-xs bg-surface-container-lowest rounded shadow-xs flex flex-col">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm font-semibold text-on-surface">Hub 3: West</span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">48 Edge Nodes</span>
+<span class="font-label-sm text-label-sm text-primary font-mono mt-1">Sparsity: 80%</span>
+</div>
+<div class="p-space-xs bg-surface-container-lowest rounded shadow-xs flex flex-col">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm font-semibold text-on-surface">Hub 4: South</span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">43 Edge Nodes</span>
+<span class="font-label-sm text-label-sm text-primary font-mono mt-1">Sparsity: 79%</span>
+</div>
+</div>
+<!-- Inter-Tier Channel indicator -->
+<div class="flex items-center justify-center gap-2 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-secondary">arrow_downward</span>
+<span class="uppercase tracking-widest text-[10px]">Tier-2 Local Client Sensors (173 Nodes)</span>
+<span class="material-symbols-outlined text-[16px] text-secondary">arrow_upward</span>
+</div>
+<!-- Tier 1: Micro Edge Sensors Visual Strip -->
+<div class="bg-surface-container-lowest p-space-xs rounded shadow-xs flex items-center justify-between">
+<div class="flex items-center gap-1.5 overflow-hidden">
+<span class="w-3 h-3 rounded-full bg-secondary"></span>
+<span class="w-3 h-3 rounded-full bg-secondary"></span>
+<span class="w-3 h-3 rounded-full bg-secondary"></span>
+<span class="w-3 h-3 rounded-full bg-error"></span>
+<span class="w-3 h-3 rounded-full bg-secondary"></span>
+<span class="w-3 h-3 rounded-full bg-secondary"></span>
+<span class="w-3 h-3 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant pl-1">+166 Clients</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-semibold">100% Online</span>
+</div>
+</div>
+</div>
+<!-- Architecture Bottom Status Summary -->
+<div class="p-space-sm rounded bg-surface-container flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[18px]">verified</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase font-semibold text-on-surface">Client Privacy Guarantee</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">ε = 0.42 (δ = 10<sup>-5</sup>) Differential Privacy</span>
+</div>
+</div>
+<span class="px-space-xs py-[2px] rounded bg-secondary-fixed/50 text-secondary font-label-sm text-label-sm font-bold">DP-SGD</span>
+</div>
+</div>
+</div>
+<!-- 3. DEEP ANALYTICS ROW: DUAL-SERIES TIMESERIES CHART (60%) + COMMUNICATION BENCHMARK LAB (40%) -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg">
+<!-- PREDICTION ANALYTICS TIMESERIES SECTION (xl:col-span-7) -->
+<div class="xl:col-span-7 bg-surface-container-lowest rounded shadow-xs p-space-lg flex flex-col justify-between">
+<div>
+<div class="flex flex-wrap items-center justify-between gap-space-md mb-space-sm">
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">show_chart</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">24-Hour Velocity Trajectory &amp; Horizon Benchmark</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Sensor #773822 Ground Truth vs HiLo-Fed Spatial-Temporal Forecast (60 Min Ahead)</span>
+</div>
+<!-- Timeseries Legend -->
+<div class="flex items-center gap-space-md text-on-surface font-label-sm text-label-sm">
+<div class="flex items-center gap-1.5">
+<span class="w-3.5 h-1 rounded-full bg-primary"></span>
+<span class="">HiLo-Fed</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-3.5 h-1 rounded-full bg-on-surface"></span>
+<span class="">Ground Truth</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-3.5 h-1 border-t-2 border-dashed border-outline"></span>
+<span class="text-on-surface-variant">Vanilla FedAvg</span>
+</div>
+</div>
+</div>
+<!-- Interactive High-Fidelity SVG Timeseries Chart -->
+<div class="relative w-full h-[240px] bg-surface-container-low/40 rounded p-space-sm overflow-hidden select-none">
+<svg class="w-full h-full" fill="none" preserveAspectRatio="none" viewBox="0 0 760 210">
+<!-- Grid Horizontal Guide Lines -->
+<g opacity="0.8" stroke="#dae2fd" stroke-width="1">
+<line x1="40" x2="740" y1="20" y2="20"></line>
+<line x1="40" x2="740" y1="65" y2="65"></line>
+<line x1="40" x2="740" y1="110" y2="110"></line>
+<line x1="40" x2="740" y1="155" y2="155"></line>
+<line x1="40" x2="740" y1="190" y2="190"></line>
+</g>
+<!-- Y-Axis Value Labels -->
+<g fill="#737686" font-family="JetBrains Mono" font-size="9">
+<text x="12" y="24">70 mph</text>
+<text x="12" y="69">55 mph</text>
+<text x="12" y="114">40 mph</text>
+<text x="12" y="159">25 mph</text>
+<text x="12" y="193">10 mph</text>
+</g>
+<!-- Peak Rush Hour Highlight Zone (07:00 - 09:30) -->
+<rect fill="#ba1a1a" fill-opacity="0.05" height="170" width="110" x="220" y="20"></rect>
+<text fill="#ba1a1a" font-family="JetBrains Mono" font-size="9" font-weight="600" x="230" y="34">AM RUSH PEAK</text>
+<!-- Evening Rush Highlight Zone (16:30 - 19:00) -->
+<rect fill="#ba1a1a" fill-opacity="0.05" height="170" width="105" x="520" y="20"></rect>
+<text fill="#ba1a1a" font-family="JetBrains Mono" font-size="9" font-weight="600" x="530" y="34">PM CONGESTION</text>
+<!-- HiLo-Fed 95% Confidence Band (Area) -->
+<polygon fill="#006a61" fill-opacity="0.14" points="
+                40,42 90,40 150,45 210,65 240,135 270,158 310,140 370,80 430,75 490,90 530,150 580,165 620,135 670,68 740,45
+                740,55 670,80 620,150 580,180 530,165 490,105 430,90 370,95 310,155 270,172 240,152 210,80 150,55 90,50 40,52
+              "></polygon>
+<!-- Vanilla FedAvg Curve (Dashed Gray) -->
+<path d="M40,48 Q90,46 150,52 T240,118 T270,142 T310,130 T370,88 T430,82 T490,98 T530,138 T580,150 T620,120 T670,75 T740,50" stroke="#737686" stroke-dasharray="4 4" stroke-width="1.8"></path>
+<!-- Ground Truth Historical Observation (Solid Deep Slate) -->
+<path d="M40,45 Q90,42 150,48 T240,145 T270,165 T310,148 T370,86 T430,80 T490,96 T530,158 T580,172 T620,142 T670,72 T740,48" stroke="#131b2e" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"></path>
+<!-- HiLo-Fed Prediction (Solid Electric Teal) -->
+<path d="M40,47 Q90,45 150,50 T240,143 T270,164 T310,146 T370,85 T430,82 T490,95 T530,156 T580,170 T620,140 T670,73 T740,47" stroke="#006056" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+<!-- Current Time Scrubber Indicator at 17:15 -->
+<line stroke="#ba1a1a" stroke-dasharray="2 2" stroke-width="1.5" x1="550" x2="550" y1="20" y2="190"></line>
+<circle cx="550" cy="162" fill="#ba1a1a" r="4.5"></circle>
+<rect fill="#ba1a1a" height="14" rx="2" width="30" x="535" y="193"></rect>
+<text fill="#ffffff" font-family="JetBrains Mono" font-size="8" font-weight="600" x="538" y="203">17:15</text>
+<!-- X-Axis Hours -->
+<g fill="#737686" font-family="JetBrains Mono" font-size="9">
+<text x="40" y="204">00:00</text>
+<text x="145" y="204">04:00</text>
+<text x="250" y="204">08:00</text>
+<text x="355" y="204">12:00</text>
+<text x="460" y="204">16:00</text>
+<text x="565" y="204">20:00</text>
+<text x="700" y="204">23:59</text>
+</g>
+</svg>
+</div>
+</div>
+<!-- Timeseries Analytics Sub-Bar -->
+<div class="mt-space-md pt-space-sm border-t border-surface-container flex flex-wrap items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-lg flex-wrap">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Horizon Degradation</span>
+<span class="font-label-md text-label-md font-semibold text-on-surface">+0.12 MAE / 15m</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">FedAvg Performance Delta</span>
+<span class="font-label-md text-label-md font-semibold text-secondary">-0.44 mph (+16.5% Accuracy)</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Peak Congestion MAPE</span>
+<span class="font-label-md text-label-md font-semibold text-on-surface">5.12% vs 8.74% Baseline</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="px-space-md py-[4px] rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors" type="button">
+              Compare All Horisons
+            </button>
+</div>
+</div>
+</div>
+<!-- COMMUNICATION EFFICIENCY LAB (xl:col-span-5) -->
+<div class="xl:col-span-5 bg-surface-container-lowest rounded shadow-xs p-space-lg flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[20px]">bolt</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Communication Lab Benchmark</span>
+</div>
+<span class="px-space-xs py-[2px] rounded bg-secondary-fixed/40 text-secondary font-label-sm text-label-sm font-semibold">
+              Pareto Optimal
+            </span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Total Cumulative Uplink/Downlink Payload vs STGCN Convergence</span>
+<!-- Comparative Payload Horizontal Benchmark Bars -->
+<div class="flex flex-col gap-space-md my-space-md">
+<!-- Centralized STGCN -->
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-on-surface font-medium">Centralized Cloud STGCN (Full Telemetry)</span>
+<span class="font-mono text-on-surface-variant">1,840 MB (100%)</span>
+</div>
+<div class="w-full h-3 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-outline-variant rounded-full w-full"></div>
+</div>
+</div>
+<!-- Vanilla FedAvg -->
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-on-surface font-medium">Vanilla FedAvg (Full Client Weights)</span>
+<span class="font-mono text-on-surface-variant">452 MB (-75.4%)</span>
+</div>
+<div class="w-full h-3 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-outline rounded-full w-[24.5%]"></div>
+</div>
+</div>
+<!-- Top-k FedAvg -->
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-on-surface font-medium">Top-k Gradient FedAvg</span>
+<span class="font-mono text-on-surface-variant">230 MB (-87.5%)</span>
+</div>
+<div class="w-full h-3 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary-fixed-dim rounded-full w-[12.5%]"></div>
+</div>
+</div>
+<!-- HiLo-Fed (Ours) -->
+<div class="flex flex-col gap-1 bg-surface-container-low p-space-xs rounded">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-primary font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">star</span>HiLo-Fed (Two-Tier Sparsity)
+                </span>
+<span class="font-mono font-bold text-secondary">142.8 MB (-92.2% vs Raw)</span>
+</div>
+<div class="w-full h-3 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary rounded-full w-[7.7%]"></div>
+</div>
+</div>
+</div>
+<!-- Micro Metric Breakdown Grid -->
+<div class="grid grid-cols-3 gap-space-xs text-center mt-space-sm">
+<div class="p-space-xs bg-surface-container-low rounded">
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Uplink Ratio</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">4.8×</span>
+<span class="font-label-sm text-label-sm text-secondary font-medium">Faster</span>
+</div>
+<div class="p-space-xs bg-surface-container-low rounded">
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Round Payload</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">1.18</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">MB / epoch</span>
+</div>
+<div class="p-space-xs bg-surface-container-low rounded">
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Round Latency</span>
+<span class="font-headline-sm text-headline-sm text-secondary font-bold">3.4s</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">vs 12.8s base</span>
+</div>
+</div>
+</div>
+<div class="pt-space-sm border-t border-surface-container mt-space-md flex items-center justify-between">
+<div class="flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-secondary">verified_user</span>
+<span class="">Zero Gradient Inversion Vulnerability</span>
+</div>
+<button class="px-space-md py-[4px] rounded bg-secondary-container text-on-secondary-container hover:bg-secondary hover:text-on-secondary font-label-md text-label-md font-semibold transition-colors" type="button">
+            Configure Pruning
+          </button>
+</div>
+</div>
+</div>
+<!-- FOOTNOTE CITATION & BENCHMARK AUDIT STRIP -->
+<div class="px-space-md py-space-sm rounded bg-surface-container-lowest text-on-surface-variant font-label-sm text-label-sm flex flex-wrap items-center justify-between gap-space-md shadow-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-primary">info</span>
+<span class="">Telemetry values validated on Los Angeles County METR-LA (207 sensor loops, 4-month continuous empirical log).</span>
+</div>
+<div class="flex items-center gap-space-md font-mono text-[11px]">
+<span class="">HiLo-Fed Core v2.4-STGNN</span>
+<span class="">Seed: #429810</span>
+<span class="text-secondary font-semibold">Status: EVAL_VERIFIED</span>
+</div>
+</div>
+</div>
+<!-- EMBEDDED DASHBOARD LOGIC (INTERACTIVITY & TAB SWITCHING) -->
+<script>
+    (function initCommandCenter() {
+      // Horizon toggle buttons
+      const horizonBtns = document.querySelectorAll('.horizon-btn');
+      horizonBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          horizonBtns.forEach(b => {
+            b.classList.remove('bg-surface-container-lowest', 'text-primary', 'shadow-xs', 'font-semibold');
+            b.classList.add('text-on-surface-variant');
+          });
+          btn.classList.add('bg-surface-container-lowest', 'text-primary', 'shadow-xs', 'font-semibold');
+          btn.classList.remove('text-on-surface-variant');
+        });
+      });
+
+      // Layer Toggles
+      const gnnBtn = document.getElementById('toggleGNN');
+      const gnnEdges = document.getElementById('gnn-edges');
+      let gnnActive = true;
+      if (gnnBtn && gnnEdges) {
+        gnnBtn.addEventListener('click', () => {
+          gnnActive = !gnnActive;
+          gnnEdges.style.display = gnnActive ? 'block' : 'none';
+          gnnBtn.classList.toggle('bg-surface-container-lowest', gnnActive);
+          gnnBtn.classList.toggle('text-primary', gnnActive);
+        });
+      }
+
+      // Stream Freeze / Resume Button
+      const freezeBtn = document.getElementById('freezeStreamBtn');
+      let isPaused = false;
+      if (freezeBtn) {
+        freezeBtn.addEventListener('click', () => {
+          isPaused = !isPaused;
+          freezeBtn.querySelector('span:last-child').textContent = isPaused ? 'Resume Sync' : 'Pause Sync';
+          freezeBtn.querySelector('.material-symbols-outlined').textContent = isPaused ? 'play_circle' : 'pause_circle';
+          freezeBtn.classList.toggle('bg-error-container', isPaused);
+          freezeBtn.classList.toggle('text-on-error-container', isPaused);
+        });
+      }
+
+      // Topology Tab Selector Switcher
+      const tabGNN = document.getElementById('topoTabGNN');
+      const tabSparsity = document.getElementById('topoTabSparsity');
+      if (tabGNN && tabSparsity) {
+        tabGNN.addEventListener('click', () => {
+          tabGNN.classList.add('bg-surface-container-lowest', 'text-primary', 'shadow-xs');
+          tabGNN.classList.remove('text-on-surface-variant');
+          tabSparsity.classList.remove('bg-surface-container-lowest', 'text-primary', 'shadow-xs');
+          tabSparsity.classList.add('text-on-surface-variant');
+        });
+        tabSparsity.addEventListener('click', () => {
+          tabSparsity.classList.add('bg-surface-container-lowest', 'text-primary', 'shadow-xs');
+          tabSparsity.classList.remove('text-on-surface-variant');
+          tabGNN.classList.remove('bg-surface-container-lowest', 'text-primary', 'shadow-xs');
+          tabGNN.classList.add('text-on-surface-variant');
+        });
+      }
+
+      // Node Interaction Tooltip
+      const targetNode = document.getElementById('selectedNodeTarget');
+      if (targetNode) {
+        targetNode.addEventListener('click', () => {
+          targetNode.classList.add('animate-ping');
+          setTimeout(() => targetNode.classList.remove('animate-ping'), 600);
+        });
+      }
+    })();
+  </script>
+</div></main></div>
+
+</body></html>
